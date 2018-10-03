@@ -1,0 +1,6 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.library
+productName: library
+electronVersion: 3.0.2
