@@ -1,19 +1,17 @@
 {
-  "name": "library",
-  "version": "0.0.1",
-  "description": "library management system",
-  "main": "index.js",
+  "name": "electron-demo",
+  "version": "1.0.0",
+  "description": "Electron demo app for a school presentation",
+  "main": "main.js",
   "scripts": {
-    "start": "electron index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "build" :{
-    "appId" : "com.library",
-    "productName" : "library"
+    "start": "electron ."
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^3.0.2"
+    "electron": "^1.4.8"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0"
   }
 }
