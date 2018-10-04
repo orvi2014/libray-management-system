@@ -3,6 +3,7 @@ const {app, BrowserWindow, Menu} = electron
 const path = require('path')
 const url = require('url')
 
+
 // Template for the Menu
 menuTemplate = [
   {
@@ -32,8 +33,22 @@ function createWindow () {
 
   dashWindow = new BrowserWindow({
     width: 1280,
-    height: 720
+    height: 720,
+    webPreferences: {
+      nativeWindowOpen: true
+    }
   })
+
+  dashWindow.webContents.on('did-finish-load', ()=>{
+    dashWindow.show();
+    dashWindow.focus();
+  });
+
+  dashWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
 
   // Load the index.html file
   mainWindow.loadURL(url.format({
@@ -42,11 +57,7 @@ function createWindow () {
     slashes: true
   }))
 
-  dashWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  
 
   // Set up the menu
   var menu = Menu.buildFromTemplate(menuTemplate)

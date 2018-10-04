@@ -21,9 +21,18 @@
       </div>
       <div class="two columns">
         <label for="add" class="invisible">x</label>
-        <input class="button-primary" value="login" id="but" type="button">
+        <input class="button-primary" value="login" id="but" type="button" onclick="myFunction()">
       </div>
     </div>
   </div>
+  <script>
+                        function myFunction() {
+                            const remote = require('electron').remote;
+                        const BrowserWindow = remote.BrowserWindow;
+
+                        var win = new BrowserWindow({ width: 800, height: 600 });
+                        win.loadURL(`file://${__dirname}/index.html`)
+                        }
+                        </script>
 </body>
 </html>
