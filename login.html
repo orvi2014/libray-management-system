@@ -27,12 +27,33 @@
   </div>
   <script>
                         function myFunction() {
-                            const remote = require('electron').remote;
-                        const BrowserWindow = remote.BrowserWindow;
+                            const { remote: { BrowserWindow }, ipcRenderer: ipc } = require("electron")
+                            const remote = require('electron').remote
+                            const main = remote.require('./main.js')
+                        // logic 
 
-                        var win = new BrowserWindow({ width: 800, height: 600 });
-                        win.loadURL(`file://${__dirname}/index.html`)
-                        }
+                        var username = document.getElementById('username');
+                        var password = document.getElementById('password');
+                        if(username.value == "admin" && password.value == "123456"){
+                          let win = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    webPreferences: {
+      nativeWindowOpen: true
+    }
+  })
+          var window = remote.getCurrentWindow()
+          win.loadURL(`file://${__dirname}/index.html`)
+          window.close()
+           //main.openWindow('index')
+           //ipc.send("send-window-id")
+        }
+        
+        //ipc.on("window-id-sent", (event,id) => {
+           //BrowserWindow.fromId(id).close();
+        //})
+      }
+                        
                         </script>
 </body>
 </html>

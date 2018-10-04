@@ -1,7 +1,9 @@
 const electron = require('electron')
-const {app, BrowserWindow, Menu} = electron
 const path = require('path')
 const url = require('url')
+const { app, BrowserWindow, ipcMain: ipc } = electron
+
+let win
 
 
 // Template for the Menu
@@ -30,25 +32,6 @@ function createWindow () {
     width: 1280,
     height: 720
   })
-
-  dashWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
-    webPreferences: {
-      nativeWindowOpen: true
-    }
-  })
-
-  dashWindow.webContents.on('did-finish-load', ()=>{
-    dashWindow.show();
-    dashWindow.focus();
-  });
-
-  dashWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
 
   // Load the index.html file
   mainWindow.loadURL(url.format({
@@ -100,6 +83,26 @@ app.on('ready', () => {
     mainWindow.minimize()
     dashWindow.minimize()
   })
+})
+
+// new window open
+exports.openWindow = (filename) => {
+  console.log('paici')
+  let win = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    webPreferences: {
+      nativeWindowOpen: true
+    }
+  })
+  win.loadURL(`file://${__dirname}`+filename+`.html`)
+}
+
+
+// rendering message
+ipc.on("send-window-id", (event) => {
+  event.sender.send("window-id-sent", win.id)
+  win.close()
 })
 
 // Quit when all windows are closed
