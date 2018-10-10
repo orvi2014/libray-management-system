@@ -3,12 +3,14 @@ var Datastore = require('nedb');
 db = new Datastore({ filename: 'db/persons.db', autoload: true });
 
 // Adds a person
-exports.addPerson = function(firstname, lastname) {
+exports.addPerson = function(firstname, lastname, author, title) {
 
   // Create the person object
   var person = {
     "firstname": firstname,
-    "lastname": lastname
+    "lastname": lastname,
+    "author": author,
+    "title": title
   };
 
   // Save the person to the database
@@ -35,3 +37,12 @@ exports.deletePerson = function(id) {
     // Do nothing
   });
 }
+ 
+// Updates a person
+exports.updatePerson = function(id){
+  db.update({ _id: id }, {}, function(err, numRemoved) {
+    // Do nothing
+  });
+  
+}
+
