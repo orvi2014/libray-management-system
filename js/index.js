@@ -42,7 +42,7 @@ function populateTable() {
       tableBody += '  <td>' + persons[i].lastname + '</td>';
       tableBody += '  <td>' + persons[i].author + '</td>';
       tableBody += '  <td>' + persons[i].title + '</td>';
-      tableBody += '  <td><input type="button" value="Delete" onclick="updatePerson(\'' + persons[i]._id + '\')"></td>'
+      tableBody += '  <td><input type="button" value="Update" onclick="updatePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
@@ -64,9 +64,16 @@ function deletePerson(id) {
 }
 
 function updatePerson(id){
+  // Creating a form
+  
+  var  div ='';
+  for(i=0;i<3; i++){
+    div += '<div>';
+    div += '<input type="text" value="Update">';
+    div += '</div>';
+  }
+  // Fill the table content
+  document.getElementById('update').innerHTML = div;
+  
+  }
 
-  database.updatePerson(id);
-
-  populateTable();
-
-}
