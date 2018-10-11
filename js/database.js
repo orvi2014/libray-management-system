@@ -25,6 +25,11 @@ exports.getPersons = function(fnc) {
   // Get all persons from the database
   db.find({}, function(err, docs) {
 
+  db.find({_id:fnc}, {}, function(err, findUpdate){
+
+  });
+  
+
     // Execute the parameter function
     fnc(docs);
   });
@@ -40,7 +45,8 @@ exports.deletePerson = function(id) {
  
 // Updates a person
 exports.updatePerson = function(id){
-  db.update({ _id: id }, {}, function(err, numRemoved) {
+  
+  db.update({ _id: id }, {}, function(err, numUpdate) {
     // Do nothing
   });
   

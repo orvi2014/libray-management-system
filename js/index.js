@@ -6,7 +6,7 @@ window.onload = function() {
   populateTable();
 
   // Add the add button click event
-  document.getElementById('add').addEventListener('click', () => {
+  document.getElementById('useradd').addEventListener('click', () => {
 
     // Retrieve the input fields
     var firstname = document.getElementById('firstname');
@@ -42,7 +42,7 @@ function populateTable() {
       tableBody += '  <td>' + persons[i].lastname + '</td>';
       tableBody += '  <td>' + persons[i].author + '</td>';
       tableBody += '  <td>' + persons[i].title + '</td>';
-      tableBody += '  <td><input type="button" value="Update" onclick="updatePerson(\'' + persons[i]._id + '\')"></td>'
+      tableBody += '  <td><input type="button" value="Update" onclick="editPerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
@@ -63,17 +63,15 @@ function deletePerson(id) {
   populateTable();
 }
 
-function updatePerson(id){
-  // Creating a form
-  
-  var  div ='';
-  for(i=0;i<3; i++){
-    div += '<div>';
-    div += '<input type="text" value="Update">';
-    div += '</div>';
-  }
-  // Fill the table content
-  document.getElementById('update').innerHTML = div;
-  
-  }
+ // edit against _id
+function editPerson(id){
+  edit(id);
+}  
+
+// create a html form and save it
+function edit(id){
+  var div = document.createElement("div");
+div.style.width = "100px";
+div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
+}
 

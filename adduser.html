@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="css/cs-skin-elastic.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="scss/style.css">
+    <script src="js/index.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
 </head>
 <body>
         <!-- Left Panel -->
@@ -82,21 +82,8 @@
 
             <div class="header-menu">
                 <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
 
                     <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
                         <div class="dropdown-menu" aria-labelledby="language" >
                             <div class="dropdown-item">
                                 <span class="flag-icon flag-icon-fr"></span>
@@ -124,17 +111,6 @@
                 <div class="page-header float-left">
                     <div class="page-title">
                         <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Basic</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -175,15 +151,12 @@
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
+                        <button type="submit" class="btn btn-primary btn-sm" id="useradd">
                           <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
-                          <i class="fa fa-ban"></i> Reset
                         </button>
                       </div>
                     </div>
-                  
+                  <div id="tablebody"></div>
                 </div>
 
 
@@ -198,7 +171,7 @@
  <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-
+   
 
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
     <script src="js/dashboard.js"></script>
@@ -208,9 +181,18 @@
     <script src="js/lib/vector-map/jquery.vmap.sampledata.js"></script>
     <script src="js/lib/vector-map/country/jquery.vmap.world.js"></script>
     <script src="js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script type="text/javascript">
+        var remote = require('electron').remote;
+        document.addEventListener('keydown', function (e) {
+          if (e.which === 123) {
+            remote.getCurrentWindow().webContents.openDevTools();
+          } else if (e.which === 116) {
+            location.reload();
+          }
+        });
+    </script>
+
+    
 
 
 </body>
