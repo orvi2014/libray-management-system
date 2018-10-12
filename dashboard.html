@@ -262,45 +262,40 @@
             </div>
         </div> <!-- .content -->
     <!---MOnnthly report --->
-    <div class="col-lg-6">
+    
+                 <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Monthly Report</strong>
+                            <strong class="card-title">Data Table</strong>
                         </div>
                         <div class="card-body">
-                            <table class="table table-dark">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Book ID</th>
-                                  <th scope="col">Book Name</th>
-                                  <th scope="col">Edition</th>
-                                  <th scope="col">Issued ID</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Accesion Number</th>
+                        <th>Edition</th>
+                        <th>Publisher</th>
+
+                      </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                    </tbody>
+                  </table>
                         </div>
                     </div>
                 </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        
      </div><!-- /#right-panel -->
 
      <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>

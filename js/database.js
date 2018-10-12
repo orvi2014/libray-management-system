@@ -3,14 +3,15 @@ var Datastore = require('nedb');
 db = new Datastore({ filename: 'db/persons.db', autoload: true });
 
 // Adds a person
-exports.addPerson = function(firstname, lastname, author, title) {
+exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
 
   // Create the person object
   var person = {
-    "firstname": firstname,
-    "lastname": lastname,
-    "author": author,
-    "title": title
+    "userid": userid,
+    "uname": uname,
+    "udesignation": udesignation,
+    "uemail": uemail,
+    "uphone": uphone
   };
 
   // Save the person to the database
@@ -19,6 +20,7 @@ exports.addPerson = function(firstname, lastname, author, title) {
   });
 };
 
+//Add a book
 // Returns all persons
 exports.getPersons = function(fnc) {
 
@@ -28,8 +30,6 @@ exports.getPersons = function(fnc) {
   db.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
-  
-
     // Execute the parameter function
     fnc(docs);
   });

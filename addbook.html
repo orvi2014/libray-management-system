@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="scss/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <script src="js/addbook.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
@@ -154,52 +154,60 @@
                         <form action="" method="post" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book ID</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Book ID</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="bookid" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Book ID</span></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-password" class=" form-control-label">Book Title</label></div>
-                            <div class="col-12 col-md-9"><input type="password" id="hf-password" name="hf-password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter your book title</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="btitle" name="hf-password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter your book title</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Author</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Author name</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="authorname" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Author name</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Accession Number</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Accession number</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="accessionnumber" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Accession number</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Edition</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Edition</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="edition" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Edition</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Publisher</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Publisher name</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="publishername" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Publisher's name</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Publishing Place</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Publish place</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="publishplace" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Publishing place</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Year of Publishing</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter year of publishing</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="ypublishing" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter year of publishing</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Pagination</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter page number</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="pagination" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter page number</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Remarks</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter remarks</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="remarks" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter remarks</span></div>
                           </div>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">ISBN Number</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter ISBN Number</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="issbn" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter ISBN Number</span></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Shelf</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="shelfnum" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Shelf Number</span></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Colume Number</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="columnum" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Colume Number</span></div>
                           </div>
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
+                        <button type="submit" id="addbook" class="btn btn-primary btn-sm">
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">
