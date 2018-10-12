@@ -6,7 +6,7 @@ window.onload = function() {
   populateTable();
 
   // Add the add button click event
-  document.getElementById('useradd').addEventListener('click', () => {
+  document.getElementById('add').addEventListener('click', () => {
 
     // Retrieve the input fields
     var firstname = document.getElementById('firstname');
@@ -42,7 +42,7 @@ function populateTable() {
       tableBody += '  <td>' + persons[i].lastname + '</td>';
       tableBody += '  <td>' + persons[i].author + '</td>';
       tableBody += '  <td>' + persons[i].title + '</td>';
-      tableBody += '  <td><input type="button" value="Update" onclick="editPerson(\'' + persons[i]._id + '\')"></td>'
+      tableBody += '  <td><input type="button" value="Edit" onclick="editPerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
@@ -70,8 +70,32 @@ function editPerson(id){
 
 // create a html form and save it
 function edit(id){
-  var div = document.createElement("div");
-div.style.width = "100px";
-div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
+
+ database.getPersons(function(persons){
+   var editform='';
+  for (i = 0; i < persons.length; i++) {
+    editform +='<div>';
+    editform +='<input type="text" value="" id="first">';
+    editform +='<input type="text" value="" id="last">';
+    editform +='<input type="text" value="" id="tit">';
+    editform +='<input type="text" value="" id="autr">';
+    editform +='<button type="submit" onclick="updatePerson(\'' + persons[i]._id + '\')"';
+    editform +='</div>';
+  }
+  document.getElementById('editform').innerHTML = editform;
+ })
+
+}
+
+// update a person 
+function updatePerson(id){
+  var firstname = document.getElementById('first').value;
+  var lastname = document.getElementById('last').value;
+  var author = document.getElementById('autr').value;
+  var title = document.getElementById('tit').value;
+  console.log(firstname,lastname,author,title);
+  database.updatePerson(id,{firstname,lastname, title, author});
+  populateTable();
+
 }
 
