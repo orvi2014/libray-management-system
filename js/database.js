@@ -42,13 +42,14 @@ exports.deletePerson = function(id) {
     // Do nothing
   });
 }
- 
-// Updates a person
-exports.updatePerson = function(id){
-  
-  db.update({ _id: id }, {}, function(err, numUpdate) {
-    // Do nothing
+
+// Update a person
+exports.updatePerson = function(id,{firstname,lastname,author,title}) {
+  db.update({_id:id},{ firstname: firstname} , {}, function (err, numReplaced) {
+    // numReplaced = 1
+    // The doc #3 has been replaced by { _id: 'id3', planet: 'Pluton' }
+    // Note that the _id is kept unchanged, and the document has been replaced
+    // (the 'system' and inhabited fields are not here anymore)
   });
-  
 }
 
