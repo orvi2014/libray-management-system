@@ -1,6 +1,7 @@
 // Initialize the database
 var Datastore = require('nedb');
 db = new Datastore({ filename: 'db/books.db', autoload: true });
+db1= new Datastore({filename: 'db/issuedbook.db', autoload: true});
 
 // Adds a person
 exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
@@ -96,4 +97,21 @@ exports.updatePerson = function(id){
   });
   
 }
+exports.issueabook = function(bookid, userid) 
+{
+//create the book object
+var issuedbook= [{
+"bookid": bookid,
+"userid":userid,
+
+}];
+//save the book to the database
+db1.insert(issuedbook, function(err, newDoc){
+
+  //do nothing
+})
+
+
+};
+
 
