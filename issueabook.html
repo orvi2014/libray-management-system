@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="scss/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <script src="js/issueabook.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
@@ -78,8 +78,43 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">
+         <header id="header" class="header">
 
+            <div class="header-menu">
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+                        </a>
+
+                        <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
+                    </div>
+
+                    <div class="language-select dropdown" id="language-select">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
+                            <i class="flag-icon flag-icon-us"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language" >
+                            <div class="dropdown-item">
+                                <span class="flag-icon flag-icon-fr"></span>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="flag-icon flag-icon-es"></i>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="flag-icon flag-icon-us"></i>
+                            </div>
+                            <div class="dropdown-item">
+                                <i class="flag-icon flag-icon-it"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
         </header><!-- /header -->
         <!-- Header-->
@@ -89,6 +124,17 @@
                 <div class="page-header float-left">
                     <div class="page-title">
                         <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Forms</a></li>
+                            <li class="active">Basic</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -102,25 +148,26 @@
                   <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header">
-                        <strong>User</strong> Form
+                        <strong>Book</strong> Form
                       </div>
                       <div class="card-body card-block">
                         <form action="" method="post" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book ID</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="bookid" name="hf-email" placeholder="Scan the Barcode" class="form-control"><span class="help-block">Please enter bookid</span></div>
+                            <div class="col-12 col-md-9"><input type="text" id="bookid" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Book ID</span></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="hf-password" class=" form-control-label">User ID</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="uid" name="hf-password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter user ID</span></div>
                           </div>
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction()"><a href="addbook.html">Add Book</a>
+                        <button type="submit" id="issuebook" class="btn btn-primary btn-sm">
+                          <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
-                        <button type="reset" class="btn btn-info btn-sm" onclick="myFunction()"><a href="issueabook.html">
-                         Issue Book</a>
-                        </button>
-                        <button type="submit" class="btn btn-success btn-sm" >Renew Book
-                        </button>
-                        <button type="submit" class="btn btn-warning btn-sm">Free Book
+                        <button type="reset" class="btn btn-danger btn-sm">
+                          <i class="fa fa-ban"></i> Reset
                         </button>
                       </div>
                     </div>
@@ -136,22 +183,23 @@
 
     <!-- Right Panel -->
 
-     <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
+    <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        function myFunction(){
+    <script>getBookId();
+    function getBookId(){
               // Check browser support
         if (typeof(Storage) !== "undefined") {
-            // Store
-            var bookid = document.getElementById('bookid').value;
-            localStorage.setItem("bookid", bookid);
+            // Retrieve
+            var bookid=(localStorage.getItem("bookid"));
+            document.getElementById('bookid').value=bookid;
+
         } else {
             document.getElementById("tablebody").innerHTML = "Sorry, your browser does not support Web Storage...";
         }
 
         }
-      
+    
     </script>
 
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
@@ -165,7 +213,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    
+
 
 
 </body>
