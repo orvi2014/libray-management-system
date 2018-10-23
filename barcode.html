@@ -80,41 +80,6 @@
         <!-- Header-->
         <header id="header" class="header">
 
-            <div class="header-menu">
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
         </header><!-- /header -->
         <!-- Header-->
@@ -124,17 +89,6 @@
                 <div class="page-header float-left">
                     <div class="page-title">
                         <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Forms</a></li>
-                            <li class="active">Basic</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -154,18 +108,17 @@
                         <form action="" method="post" class="form-horizontal">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book ID</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="hf-email" name="hf-email" placeholder="Scan the Barcode" class="form-control"><span class="help-block">Please enter bookid</span></div>
+                            <div class="col-12 col-md-9"><input type="email" id="bookid" name="hf-email" placeholder="Scan the Barcode" class="form-control"><span class="help-block">Please enter bookid</span></div>
                           </div>
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
-                        Add Book
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction()"><a href="addbook.html">Add Book</a>
                         </button>
                         <button type="reset" class="btn btn-info btn-sm">
                          Issue Book
                         </button>
-                        <button type="submit" class="btn btn-success btn-sm">Renew Book
+                        <button type="submit" class="btn btn-success btn-sm" >Renew Book
                         </button>
                         <button type="submit" class="btn btn-warning btn-sm">Free Book
                         </button>
@@ -186,7 +139,20 @@
      <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function myFunction(){
+              // Check browser support
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            var bookid = document.getElementById('bookid').value;
+            localStorage.setItem("bookid", bookid);
+        } else {
+            document.getElementById("tablebody").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
 
+        }
+      
+    </script>
 
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
     <script src="js/dashboard.js"></script>
@@ -199,6 +165,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    
 
 
 </body>
