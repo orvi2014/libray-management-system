@@ -17,6 +17,7 @@
     "electron-packager": "^12.2.0"
   },
   "dependencies": {
+    "datatables.net-dt": "^1.10.19",
     "jquery": "^3.3.1",
     "nedb": "^1.8.0"
   }

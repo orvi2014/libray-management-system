@@ -22,7 +22,39 @@
     <link rel="stylesheet" href="css/lib/datatable/dataTables.bootstrap.min.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="scss/style.css">
+    <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <script src="js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/widgets.js"></script>
+    <script src="js/lib/vector-map/jquery.vmap.js"></script>
+    <script src="js/lib/vector-map/jquery.vmap.min.js"></script>
+    <script src="js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+    <script src="js/lib/vector-map/country/jquery.vmap.world.js"></script>
+    <script src="js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <script src="js/lib/data-table/datatables.min.js"></script>
+    <script src="js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="js/lib/data-table/jszip.min.js"></script>
+    <script src="js/lib/data-table/pdfmake.min.js"></script>
+    <script src="js/lib/data-table/vfs_fonts.js"></script>
+    <script src="js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="js/lib/data-table/buttons.print.min.js"></script>
+    <script src="js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="js/lib/data-table/datatables-init.js"></script>
      <script src="js/bookinfo.js"></script>
+     <script type="text/javascript">
+       
+        </script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
@@ -83,36 +115,6 @@
 
             <div class="header-menu">
                 <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -154,17 +156,19 @@
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th>Book ID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Accesion Number</th>
-                        <th>Edition</th>
-                        <th>Publisher</th>
-                        <th>Place of Publishing</th>
-                        <th>Year of Publishing</th>
-                        <th>Pagintaion</th>
-                        <th>Remarks</th>
-                        <th>ISBN Number</th>
+                        <th name ="bookid"> Book ID</th>
+                        <th name = "title">Title</th>
+                        <th name = "author">Author</th>
+                        <th name ="accesion">Accesion Number</th>
+                        <th name ="edition">Edition</th>
+                        <th name ="publisher">Publisher</th>
+                        <th name ="place">Place of Publishing</th>
+                        <th name="year"> Year of Publishing</th>
+                        <th name ="pagintaion">Pagintaion</th>
+                        <th name ="remarks">Remarks</th>
+                        <th name ="isbn">ISBN Number</th>
+                        <th name ="isbn">EDIT</th>
+                        <th name ="isbn">Delete</th>
 
 
                       </tr>
@@ -186,42 +190,7 @@
 
     <!-- Right Panel -->
 
-     <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-
-    <script src="js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/widgets.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.min.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-    <script src="js/lib/vector-map/country/jquery.vmap.world.js"></script>
-    <script src="js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-
-    <script src="js/lib/data-table/datatables.min.js"></script>
-    <script src="js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="js/lib/data-table/jszip.min.js"></script>
-    <script src="js/lib/data-table/pdfmake.min.js"></script>
-    <script src="js/lib/data-table/vfs_fonts.js"></script>
-    <script src="js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="js/lib/data-table/buttons.print.min.js"></script>
-    <script src="js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="js/lib/data-table/datatables-init.js"></script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-          $('#bootstrap-data-table-export').DataTable();
-        } );
-    </script>
+     
 
 
 </body>

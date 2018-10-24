@@ -60,7 +60,8 @@ window.onload = function() {
       tableBody += '  <td>' + book[i].issbn + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
-      tableBody += '  <td>' + book[i].title + '</td>'; 
+      tableBody += '  <td>' + book[i].title + '</td>';
+      tableBody += '  <td>' + book[i].title + '</td>';  
       tableBody += '  <td><input type="button" value="Update" onclick="editPerson(\'' + book[i]._id + '\')"></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + book[i]._id + '\')"></td>'
       tableBody += '</tr>';
@@ -68,6 +69,10 @@ window.onload = function() {
 
     // Fill the table content
     document.getElementById('tablebody').innerHTML = tableBody;
+    $(document).ready(function () {
+      var t = $('#bootstrap-data-table').DataTable({});
+      console.log(t)
+})
 
   });
 }
