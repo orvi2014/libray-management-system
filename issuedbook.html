@@ -24,7 +24,7 @@
     <link href="css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <script src="js/issuedbook.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
@@ -81,90 +81,12 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">
-
-            <div class="header-menu">
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </header><!-- /header -->
         <!-- Header-->
-
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content mt-3">
-
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                  <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-
-
-            <!--/.col-->
-
-            <!--/.col-->
-
-            <!--/.col-->
-            <!--/.col-->
-        </div> <!-- .content -->
-    <!---MOnnthly report --->
-    <div class="col-lg-6">
+    <!---Issued book list --->
+    <div class="col-12" style="padding-top: 10px">
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">Monthly Report</strong>
+                        <div class="card-header" style="text-align: center">
+                            <strong class="card-title">Issued Book List</strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-dark">
@@ -172,28 +94,10 @@
                                 <tr>
                                   <th scope="col">Book Id</th>
                                   <th scope="col">User ID</th>
-                                  <th scope="col">Issued Date</th>
-                                  <th scope="col">Renew Date Status</th>
+                                  <th scope="col">Renew Date</th>
+                              </tr>
                               </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">1</th>
-                                  <td>Mark</td>
-                                  <td>Otto</td>
-                                  <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">2</th>
-                                  <td>Jacob</td>
-                                  <td>Thornton</td>
-                                  <td>@fat</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">3</th>
-                                  <td>Larry</td>
-                                  <td>the Bird</td>
-                                  <td>@twitter</td>
-                                </tr>
+                              <tbody id="tablebody">
                               </tbody>
                             </table>
                         </div>

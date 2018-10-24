@@ -80,6 +80,20 @@ exports.getBooks = function(fnc) {
     fnc(docs);
   });
 }
+exports.getissuedbook = function(fnc){
+
+
+db1.find({}, function(err, docs) {
+
+db1.find({_id:fnc}, {}, function(err, findUpdate) {
+
+});
+
+//Execute the parameter function
+fnc(docs);
+});
+
+}
 
 // Deletes a person
 exports.deletePerson = function(id) {
@@ -97,12 +111,13 @@ exports.updatePerson = function(id){
   });
   
 }
-exports.issueabook = function(bookid, userid) 
-{
+
+exports.issueabook = function(bookid, userid, today) {
 //create the book object
 var issuedbook= [{
 "bookid": bookid,
 "userid":userid,
+"today":today
 
 }];
 //save the book to the database
