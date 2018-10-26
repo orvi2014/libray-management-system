@@ -17,15 +17,13 @@ function populateTable(){
       tableBody += '  <td>' + persons[i].udesignation + '</td>';
       tableBody += '  <td>' + persons[i].uemail + '</td>';
       tableBody += '  <td>' + persons[i].uphone + '</td>';
-      tableBody += '  <td>' + persons[i].title + '</td>';
-      tableBody += '  <td><input type="button" class="btn btn-outline-primary" value="Update" onclick="editPerson(\'' + persons[i]._id + '\')"></td>'
+      tableBody += '  <td><a href="updateuser.html"><input type="button" class="btn btn-outline-primary" value="Update" onclick="myFunction(\'' + persons[i]._id + '\')"></a></td>'
       tableBody += '  <td><input type="button" class="btn btn-outline-danger" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
 
     // Fill the table content
     document.getElementById('tablebody').innerHTML = tableBody;
-
   });
 }
 
@@ -40,6 +38,23 @@ function deletePerson(id) {
   populateTable();
 }
 
+function myFunction(id){
+
+if(typeof(Storage)!=="undefined"){
+
+var userid= id;
+localStorage.setItem("userid", userid);
+//console.log(userid);
+
+}
+else{
+
+}
+
+
+
+
+}
 
 
 // Deletes a person
