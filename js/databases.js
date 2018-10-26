@@ -2,6 +2,7 @@
 var Datastore = require('nedb');
 db = new Datastore({ filename: 'db/books.db', autoload: true });
 db1= new Datastore({filename: 'db/issuedbook.db', autoload: true});
+db2=new Datastore({filename:'db/persons.db', autoload: true});
 
 // Adds a person
 exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
@@ -16,7 +17,7 @@ exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
   }];
 
   // Save the person to the database
-  db.insert(person, function(err, newDoc) {
+  db2.insert(person, function(err, newDoc) {
     // Do nothing
   });
 };
@@ -54,9 +55,9 @@ db.insert(book, function(err, newDoc){
 exports.getPersons = function(fnc) {
 
   // Get all persons from the database
-  db.find({}, function(err, docs) {
+  db2.find({}, function(err, docs) {
 
-  db.find({_id:fnc}, {}, function(err, findUpdate){
+  db2.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
   
@@ -98,18 +99,31 @@ fnc(docs);
 // Deletes a person
 exports.deletePerson = function(id) {
 
-  db.remove({ _id: id }, {}, function(err, numRemoved) {
+  db2.remove({ _id: id }, {}, function(err, numRemoved) {
     // Do nothing
   });
 }
  
 // Updates a person
-exports.updatePerson = function(id){
+exports.updateBook = function(id,{bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum}){
   
-  db.update({ _id: id }, {}, function(err, numUpdate) {
+  db.update({_id:id}, {bookid: bookid, booktittle: booktittle, authornamee: authornamee, publishername: publishername, publishplace: publishplace, yearofpublishing: yearofpublishing, pagination: pagination, remarks: remarks, issbn: issbn, shelfnum: shelfnum, columnum: columnum}, {},  function(err, numReplaced) {
+    //console.log(bookid.value);
+   // console.log(booktittle.value);
+    //console.log(_id);
+   // console.log(id);
     // Do nothing
   });
   
+}
+// Update a person
+exports.updateUser = function(id,{userid,uname,udesignation, uemail, uphone,}) {
+  db2.update({_id:id},{ userid: userid, uname: uname, udesignation: udesignation, uemail: uemail, uphone: uphone} , {}, function (err, numReplaced) {
+    // numReplaced = 1
+    // The doc #3 has been replaced by { _id: 'id3', planet: 'Pluton' }
+    // Note that the _id is kept unchanged, and the document has been replaced
+    // (the 'system' and inhabited fields are not here anymore)
+  });
 }
 
 exports.issueabook = function(bookid, userid, today) {

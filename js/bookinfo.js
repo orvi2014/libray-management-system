@@ -55,14 +55,14 @@ window.onload = function() {
       tableBody += '  <td>' + book[i].booktittle + '</td>';
       tableBody += '  <td>' + book[i].authornamee + '</td>';
       tableBody += '  <td>' + book[i].publishername + '</td>';
+      tableBody += '  <td>' + book[i].publishplace + '</td>';
       tableBody += '  <td>' + book[i].yearofpublishing + '</td>';
+      tableBody += '  <td>' + book[i].pagination + '</td>';
       tableBody += '  <td>' + book[i].remarks + '</td>';
       tableBody += '  <td>' + book[i].issbn + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
-      tableBody += '  <td>' + book[i].shelfnum + '</td>';
-      tableBody += '  <td>' + book[i].title + '</td>';
-      tableBody += '  <td>' + book[i].title + '</td>';  
-      tableBody += '  <td><input type="button" value="Update" onclick="editPerson(\'' + book[i]._id + '\')"></td>'
+      tableBody += '  <td>' + book[i].columnum + '</td>';
+      tableBody += '  <td><a href="updatebook.html"><input type="button" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + book[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
@@ -98,4 +98,26 @@ function edit(id){
 div.style.width = "100px";
 div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
 }
+
+function myFunction(id){
+
+if(typeof(Storage)!=="undefined"){
+
+var updateBookid= id;
+localStorage.setItem("updateBookid", updateBookid);
+
+
+}
+else{
+
+}
+
+
+
+}
+
+
+
+
+
 
