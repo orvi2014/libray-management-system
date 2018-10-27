@@ -24,7 +24,7 @@ exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
 
 
 //Add a book
-exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace,  yearofpublishing, pagination, remarks, issbn, shelfnum, columnum) 
+exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace,  yearofpublishing, pagination, remarks, issbn, shelfnum, columnum)
 {
 //create the book object
 var book= [{
@@ -60,7 +60,7 @@ exports.getPersons = function(fnc) {
   db2.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
-  
+
 
     // Execute the parameter function
     fnc(docs);
@@ -75,7 +75,7 @@ exports.getBooks = function(fnc) {
   db.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
-  
+
 
     // Execute the parameter function
     fnc(docs);
@@ -103,10 +103,10 @@ exports.deletePerson = function(id) {
     // Do nothing
   });
 }
- 
+
 // Updates a person
 exports.updateBook = function(id,{bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum}){
-  
+
   db.update({_id:id}, {bookid: bookid, booktittle: booktittle, authornamee: authornamee, publishername: publishername, publishplace: publishplace, yearofpublishing: yearofpublishing, pagination: pagination, remarks: remarks, issbn: issbn, shelfnum: shelfnum, columnum: columnum}, {},  function(err, numReplaced) {
     //console.log(bookid.value);
    // console.log(booktittle.value);
@@ -114,7 +114,7 @@ exports.updateBook = function(id,{bookid, booktittle, authornamee, publishername
    // console.log(id);
     // Do nothing
   });
-  
+
 }
 // Update a person
 exports.updateUser = function(id,{userid,uname,udesignation, uemail, uphone,}) {
@@ -142,5 +142,3 @@ db1.insert(issuedbook, function(err, newDoc){
 
 
 };
-
-

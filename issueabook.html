@@ -30,7 +30,7 @@
 <body>
         <!-- Left Panel -->
 
-  
+
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
@@ -54,7 +54,7 @@
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
                              <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Unissued Book</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Freebook Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -163,7 +163,7 @@
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" id="issuebook" class="btn btn-primary btn-sm">
+                        <button type="submit" id="issuebook" class="btn btn-primary btn-sm" onclick="myFunction()">
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn btn-danger btn-sm">
@@ -171,7 +171,7 @@
                         </button>
                       </div>
                     </div>
-                  
+
                 </div>
 
 
@@ -199,7 +199,34 @@
         }
 
         }
-    
+
+    </script>
+    <script>
+    function  myFunction(){
+        const nodemailer = require('nodemailer');
+        const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: '',
+    pass: ''
+  }
+});
+
+const mailOptions = {
+  from: '',
+  to: '',
+  subject: 'Sending Email using Node.js',
+  text: 'That was easy!'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
+      }
     </script>
 
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
