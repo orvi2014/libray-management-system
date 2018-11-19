@@ -36,8 +36,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/Logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -52,7 +52,6 @@
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
                              <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Unissued Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -76,39 +75,14 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">
-
-            <div class="header-menu">
-                <div class="col-sm-5">
-
-                    <div class="language-select dropdown" id="language-select">
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </header><!-- /header -->
+        
         <!-- Header-->
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Update User</h1>
                     </div>
                 </div>
             </div>
@@ -166,6 +140,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
    <script>
+    //pass the value in form
        getPersons();
        function getPersons(){
        
@@ -173,7 +148,7 @@
         if(typeof(Storage)!=="undefined"){
          
         var userid= (localStorage.getItem("userid"));
-        console.log(userid)
+        //console.log(userid)
         var userid1=userid;
         var button1= '';
         database.getPersons(function(userid){
@@ -208,6 +183,7 @@
 
        }
    };
+   //user update
        function updateUser(id){
 
 

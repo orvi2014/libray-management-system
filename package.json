@@ -20,6 +20,7 @@
     "datatables.net-dt": "^1.10.19",
     "jquery": "^3.3.1",
     "nedb": "^1.8.0",
-    "nodemailer": "^4.6.8"
+    "nodemailer": "^4.6.8",
+    "nodemailer-smtp-transport": "^2.7.4"
   }
 }

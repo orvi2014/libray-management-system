@@ -62,8 +62,8 @@ window.onload = function() {
       tableBody += '  <td>' + book[i].issbn + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
       tableBody += '  <td>' + book[i].columnum + '</td>';
-      tableBody += '  <td><a href="updatebook.html"><input type="button" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
-      tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + book[i]._id + '\')"></td>'
+      tableBody += '  <td><a href="updatebook.html"><input type="button" value="Update" class="btn btn-outline-primary" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
+      tableBody += '  <td><input type="button" value="Delete" class="btn btn-outline-danger" onclick="deleteBook(\'' + book[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
 
@@ -78,10 +78,10 @@ window.onload = function() {
 }
 
 // Deletes a person
-function deletePerson(id) {
+function deleteBook(id) {
 
   // Delete the person from the database
-  database.deletePerson(id);
+  database.deleteBook(id);
 
   // Repopulate the table
   populateTable();

@@ -1,0 +1,10 @@
+version: 1.0.0
+files:
+  - url: electron-demo-1.0.0-mac.zip
+    sha512: piqfJ14pf2epN9uSVsISFXtN5aU3LPkutwAwfLR1A8GKeocmPiatd4mU+s2C/VLlpdV5AEV7g01p66TYNKlT2Q==
+  - url: electron-demo-1.0.0.dmg
+    sha512: AsWvej/sCetaGfZPFa8cQt3nxo7Ff7z0n61bd61ViooFWAzYe8lvfiB2w8FguzmEXEUIh5c+6AM8v5SgKW3oqg==
+    size: 55328828
+path: electron-demo-1.0.0-mac.zip
+sha512: piqfJ14pf2epN9uSVsISFXtN5aU3LPkutwAwfLR1A8GKeocmPiatd4mU+s2C/VLlpdV5AEV7g01p66TYNKlT2Q==
+releaseDate: '2018-11-18T08:25:04.095Z'

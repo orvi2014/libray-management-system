@@ -35,8 +35,18 @@
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
+          <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
+            </div>
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                  <li class="active">
+                        <a href="dashboard.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                    </li>
                     <h3 class="menu-title">Library Management elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Books</a>
@@ -44,7 +54,6 @@
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
                              <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Unissued Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -79,48 +88,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="content mt-3">
-
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                  <span class="badge badge-pill badge-success">Success</span> You successfully read this important alert message.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-
-
            <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-1">
                     <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            Total Number of Books
                         </h4>
-                        <p class="text-light">Members online</p>
+                        <p class="text-light" id="bookcount">
+                            
+                        </p>
 
                         <div class="chart-wrapper px-0" style="height:70px;" height="70">
                             <canvas id="widgetChart1"></canvas>
@@ -135,22 +114,12 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-2">
                     <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            Total Number of Users
                         </h4>
-                        <p class="text-light">Members online</p>
+                        <p class="text-light" id="usercount">
+                            
+                        </p>
 
                         <div class="chart-wrapper px-0" style="height:70px;" height="70">
                             <canvas id="widgetChart2"></canvas>
@@ -164,22 +133,12 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-3">
                     <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
                         <h4 class="mb-0">
-                            <span class="count">10468</span>
+                            Total Number of Issued Books
                         </h4>
-                        <p class="text-light">Members online</p>
+                        <p class="text-light" id="issuedbookcount">
+                            
+                        </p>
 
                     </div>
 
@@ -193,23 +152,12 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="card text-white bg-flat-color-4">
                     <div class="card-body pb-0">
-                        <div class="dropdown float-right">
-                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                                <i class="fa fa-cog"></i>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="dropdown-menu-content">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="mb-0">
-                            <span class="count">10468</span>
+                     <h4 class="mb-0">
+                            Total Number of Free Books
                         </h4>
-                        <p class="text-light">Members online</p>
-
+                        <p class="text-light" id="freebook">
+                            
+                        </p>
                         <div class="chart-wrapper px-3" style="height:70px;" height="70">
                             <canvas id="widgetChart4"></canvas>
                         </div>
@@ -218,71 +166,26 @@
                 </div>
             </div>
             <!--/.col-->
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Total Profit</div>
-                                <div class="stat-digit">1,012</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Active Projects</div>
-                                <div class="stat-digit">770</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div> <!-- .content -->
     <!---MOnnthly report --->
     
                  <div class="content mt-3">
             <div class="animated fadeIn">
-                <div class="row">
 
-                <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
+                            <strong class="card-title">Monthly Report</strong>
                         </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                         <th>Book ID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Accesion Number</th>
-                        <th>Edition</th>
-                        <th>Publisher</th>
-
+                        <th>User ID</th>
+                        <th>Renew Date</th>
                       </tr>
                     </thead>
                     <tbody id="tablebody">
@@ -291,17 +194,94 @@
                         </div>
                     </div>
                 </div>
-
-
                 </div>
             </div><!-- .animated -->
         
      </div><!-- /#right-panel -->
-
+    
      <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        //book count
+        const database = require('./js/databases');
+       database.bookcount();
+       var bookcount=localStorage.getItem("bookcount");
+       var bookcounthtml= '';
+        bookcounthtml+= ' <span class="count">' + bookcount + '</span>'
+       document.getElementById('bookcount').innerHTML= bookcounthtml;
+      //user count
+       database.usercount();
+       var usercount=localStorage.getItem("usercount");
+       var usercounhtmlt= '';
+       usercounhtmlt+= ' <span class="count">' + usercount + '</span>'
+       document.getElementById('usercount').innerHTML= usercounhtmlt;
+       //issuedbookcount
+       database.issuedbookcount();
+       var issuedbookcount=localStorage.getItem("issuedbook");
+       //console.log(issuedbookcount);
+       var issuedbookcounhtmlt= '';
+       issuedbookcounhtmlt+= ' <span class="count">' + issuedbookcount + '</span>'
+       document.getElementById('issuedbookcount').innerHTML= issuedbookcounhtmlt;
+        //free book count
+        var freebook = bookcount - issuedbookcount;
+        var freebookhtm='';
+        freebookhtm+= '<span class="count">' + freebook + '</span>'
+        document.getElementById('freebook').innerHTML= freebook;
 
+      database.getissuedbook(function(books){
+       var date = new Date();
+       var month =date.getMonth();
+       var month=month+2;
+       var monthh = '-' + month + '-';
+       console.log(month);
+       //console.log(monthh);
+       var tablebody = '';
+      for(i=0;i<books.length;i++){
+      /*  if(books[i].today.includes(monthh)){
+            console.log('true');
+       tablebody+= '<tr>';
+       tablebody+= '<td>' + books[i].bookid + '</td>';
+       tablebody+= '<td>' + books[i].userid + '</td>';
+       tablebody+= '<td>' + books[i].today + '</td>';
+       tablebody+= '</tr>';
+       document.getElementById("tablebody").innerHTML=tablebody; 
+       }*/
+        //console.log(books[i].bookid);
+       // var fix = books[i].today;
+       // console.log(fix.contains(monthh));
+        //var finalfix= fix.includes(monthh, 3);
+        //console.log(fix.indexOf("-10-"));
+        //
+        var fix = String(books[i].today);
+        console.log(fix);
+function findNewProgrammingLanguage(language) {
+ 
+ if (fix.indexOf(monthh) >=0) {
+       tablebody+= '<tr>';
+       tablebody+= '<td>' + books[i].bookid + '</td>';
+       tablebody+= '<td>' + books[i].userid + '</td>';
+       tablebody+= '<td>' + books[i].today + '</td>';
+       tablebody+= '</tr>';
+       document.getElementById("tablebody").innerHTML=tablebody; 
+       
+ 
+ }
+ 
+ else {
+ 
+  // console.log(language + "is not current month");
+ 
+ }
+ 
+}
+ 
+ 
+findNewProgrammingLanguage(monthh);
+        //
+       } 
+      });
+    </script>
 
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
     <script src="js/dashboard.js"></script>

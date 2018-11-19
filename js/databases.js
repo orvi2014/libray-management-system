@@ -24,7 +24,7 @@ exports.addPerson = function(userid, uname, udesignation, uemail, uphone) {
 
 
 //Add a book
-exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace,  yearofpublishing, pagination, remarks, issbn, shelfnum, columnum)
+exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace,  yearofpublishing, pagination, remarks, issbn, shelfnum, columnum) 
 {
 //create the book object
 var book= [{
@@ -60,7 +60,7 @@ exports.getPersons = function(fnc) {
   db2.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
-
+  
 
     // Execute the parameter function
     fnc(docs);
@@ -75,12 +75,13 @@ exports.getBooks = function(fnc) {
   db.find({_id:fnc}, {}, function(err, findUpdate){
 
   });
-
+  
 
     // Execute the parameter function
     fnc(docs);
   });
 }
+
 exports.getissuedbook = function(fnc){
 
 
@@ -103,10 +104,25 @@ exports.deletePerson = function(id) {
     // Do nothing
   });
 }
+exports.deleteBook = function(id){
 
+  db.remove({_id: id}, {}, function(err, numRemoved){
+
+
+
+  });
+
+}
+exports.deleteIssuedBbook=function(id){
+  db1.remove({bookid: id}, {}, function(err, numRemoved){
+
+
+  });
+}
+ 
 // Updates a person
 exports.updateBook = function(id,{bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum}){
-
+  
   db.update({_id:id}, {bookid: bookid, booktittle: booktittle, authornamee: authornamee, publishername: publishername, publishplace: publishplace, yearofpublishing: yearofpublishing, pagination: pagination, remarks: remarks, issbn: issbn, shelfnum: shelfnum, columnum: columnum}, {},  function(err, numReplaced) {
     //console.log(bookid.value);
    // console.log(booktittle.value);
@@ -114,10 +130,18 @@ exports.updateBook = function(id,{bookid, booktittle, authornamee, publishername
    // console.log(id);
     // Do nothing
   });
+  
+}
+exports.updateIssuedBook= function(id,{bookid, userid, today}){
 
+db1.update({_id:id}, {bookid: bookid, userid: userid, today: today}, {}, function(err, numReplaced){
+
+
+
+});
 }
 // Update a person
-exports.updateUser = function(id,{userid,uname,udesignation, uemail, uphone,}) {
+exports.updateUser = function(id, {userid,uname,udesignation, uemail, uphone}) {
   db2.update({_id:id},{ userid: userid, uname: uname, udesignation: udesignation, uemail: uemail, uphone: uphone} , {}, function (err, numReplaced) {
     // numReplaced = 1
     // The doc #3 has been replaced by { _id: 'id3', planet: 'Pluton' }
@@ -142,3 +166,53 @@ db1.insert(issuedbook, function(err, newDoc){
 
 
 };
+exports.bookcount= function(fnc){
+
+db.count({}, function(err, count){
+
+//console.log(count);
+localStorage.setItem("bookcount", count);
+
+
+
+
+});
+
+
+
+
+};
+exports.usercount= function(fnc){
+
+db2.count({}, function(err, count){
+
+//console.log(count);
+localStorage.setItem("usercount", count);
+
+
+
+
+});
+
+
+
+
+};
+exports.issuedbookcount= function(fnc){
+
+db1.count({}, function(err, count){
+
+//console.log(count);
+localStorage.setItem("issuedbook", count);
+
+
+
+
+});
+
+
+
+
+};
+
+

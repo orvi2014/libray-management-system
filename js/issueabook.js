@@ -16,7 +16,7 @@ window.onload = function() {
     var dd = today.getDate();
     var mm=today.getMonth();
     var yy=today.getFullYear();
-    mm= mm + 1; 
+    mm= mm + 2; 
     if(mm>12){
     yy=yy+1;
     mm = 1;
