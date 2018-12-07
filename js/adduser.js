@@ -1,4 +1,4 @@
-const database = require('./js/database');
+const database = require('./js/databases');
 
 window.onload = function() {
 
@@ -14,9 +14,20 @@ window.onload = function() {
     var udesignation = document.getElementById('udesignation');
     var uemail = document.getElementById('uemail');
     var uphone = document.getElementById('uphone');
+    var udept = document.getElementById('udept');
+    var uip = document.getElementById('uip');
 
-    // Save the person in the database
-    database.addPerson(userid.value, uname.value, udesignation.value, uemail.value, uphone.value);
+    // Save the person in the database if form value is not blank
+    if (userid.value !== "" && uname.value !== "" && udesignation.value !== "" && uemail.value !== "" && uphone.value !== "" && udept.value !== "" && uip.value !== "") {
+      database.addPerson(userid.value, uname.value, udesignation.value, uemail.value, uphone.value, udept.value, uip.value);
+      var successMsg = document.getElementById("msg");
+      successMsg.innerHTML = "SUCCESS: Book Added Successfully";
+      successMsg.style.color = "green";
+    } else {
+      var errorMsg = document.getElementById("msg");
+      errorMsg.innerHTML = "ERROR: Please Fill Up All Fields";
+      errorMsg.style.color = "Red";
+    }
 
     // Reset the input fields
     userid.value = '';
@@ -24,9 +35,11 @@ window.onload = function() {
     udesignation.value = '';
     uemail.value = '';
     uphone.value = '';
+    udept.value = '';
+    uip.value = '';
 
     // Repopulate the table
-   // populateTable();
+    // populateTable();
   });
 }
 
@@ -45,14 +58,18 @@ function populateTable() {
       tableBody += '  <td>' + persons[i].udesignation + '</td>';
       tableBody += '  <td>' + persons[i].uemail + '</td>';
       tableBody += '  <td>' + persons[i].uphone + '</td>';
-      tableBody += '  <td>' + persons[i].title + '</td>';
+      tableBody += '  <td>' + persons[i].udept + '</td>';
+      tableBody += '  <td>' + persons[i].uip + '</td>';
+
       tableBody += '  <td><input type="button" value="Update" onclick="editPerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
-
     // Fill the table content
     document.getElementById('tablebody').innerHTML = tableBody;
+    $(document).ready(function() {
+      var t = $('#bootstrap-data-table').DataTable({});
+    });
 
   });
 }
@@ -67,15 +84,14 @@ function deletePerson(id) {
   populateTable();
 }
 
- // edit against _id
-function editPerson(id){
+// edit against _id
+function editPerson(id) {
   edit(id);
-}  
-
-// create a html form and save it
-function edit(id){
-  var div = document.createElement("div");
-div.style.width = "100px";
-div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
 }
 
+// create a html form and save it
+function edit(id) {
+  var div = document.createElement("div");
+  div.style.width = "100px";
+  div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
+}

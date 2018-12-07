@@ -1,49 +1,13 @@
 const database = require('./js/databases');
 
-function populateTable() {
-
-   //Populate the table
+// Populates the book table
+window.onload = function() {
   populateTable();
 
-  // Add the add button click event
-  document.getElementById('addbook').addEventListener('click', () => {
-
-    // Retrieve the input fields
-    var bookid = document.getElementById('bookid');
-    var booktittle = document.getElementById('btitle');
-    var authornamee = document.getElementById('authorname');
-    var accessionnumber = document.getElementById('accessionnumber');
-    var publishername = document.getElementById('publishername');
-    var publishplace = document.getElementById('publishplace');
-    var yearofpublishing = document.getElementById('ypublishing');
-    var pagination = document.getElementById('pagination');
-    var remarks = document.getElementById('remarks');
-    var issbn = document.getElementById('issbn');
-    var shelfnum = document.getElementById('shelfnum');
-    var columnum = document.getElementById('columnum');
-
-
-    // Save the person in the database
-    database.addBook(bookid.value, booktittle.value, authornamee.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value) ;
-
-    // Reset the input fields
-    bookid.value = '';
-    booktittle.value = '';
-    authornamee.value = '';
-    publishername.value = '';
-    publishplace.value = '';
-    yearofpublishing.value = '';
-    remarks.value = '';
-    issbn.value = '';
-    shelfnum.value = '';
-    columnum.value = '';
-    // Repopulate the table
-   // populateTable();
-  });
 }
 
 // Populates the persons table
-window.onload = function() {
+function populateTable() {
   // Retrieve the persons
   database.getBooks(function(book) {
 
@@ -62,62 +26,54 @@ window.onload = function() {
       tableBody += '  <td>' + book[i].issbn + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
       tableBody += '  <td>' + book[i].columnum + '</td>';
-      tableBody += '  <td><a href="updatebook.html"><input type="button" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
-      tableBody += '  <td><input type="button" value="Delete" onclick="deletePerson(\'' + book[i]._id + '\')"></td>'
+      tableBody += '  <td><a href="updatebook.html"><input type="button" class="btn btn-outline-primary" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
+      tableBody += '  <td><input type="button" value="Delete" class="btn btn-outline-danger" onclick="deleteBook(\'' + book[i]._id + '\')"></td>'
       tableBody += '</tr>';
     }
 
     // Fill the table content
     document.getElementById('tablebody').innerHTML = tableBody;
-    $(document).ready(function () {
+    $(document).ready(function() {
       var t = $('#bootstrap-data-table').DataTable({});
-      console.log(t)
-})
+    });
+    $.fn.dataTable.ext.errMode = 'none';
+
+    $('#tablebody').on('error.dt', function(e, settings, techNote, message) {
+      console.log('An error has been reported by DataTables: ', message);
+    });
 
   });
 }
 
 // Deletes a person
-function deletePerson(id) {
+function deleteBook(id) {
 
   // Delete the person from the database
-  database.deletePerson(id);
+  database.deleteBook(id);
 
   // Repopulate the table
   populateTable();
 }
 
- // edit against _id
-function editPerson(id){
+// edit against _id
+function editPerson(id) {
   edit(id);
-}  
+}
 
 // create a html form and save it
-function edit(id){
+function edit(id) {
   var div = document.createElement("div");
-div.style.width = "100px";
-div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
+  div.style.width = "100px";
+  div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
 }
 
-function myFunction(id){
+function myFunction(id) {
 
-if(typeof(Storage)!=="undefined"){
+  if (typeof(Storage) !== "undefined") {
 
-var updateBookid= id;
-localStorage.setItem("updateBookid", updateBookid);
+    var updateBookid = id;
+    localStorage.setItem("updateBookid", updateBookid);
 
 
+  } else {}
 }
-else{
-
-}
-
-
-
-}
-
-
-
-
-
-

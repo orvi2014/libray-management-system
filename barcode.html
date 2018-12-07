@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>Square Pharmaceuticals Ltd.</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,8 +38,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/Logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -54,7 +54,6 @@
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
                              <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Unissued Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -88,7 +87,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Barcode Panel</h1>
                     </div>
                 </div>
             </div>
@@ -102,7 +101,7 @@
                   <div class="col-lg-6">
                     <div class="card">
                       <div class="card-header">
-                        <strong>User</strong> Form
+                        <strong>Form</strong>
                       </div>
                       <div class="card-body card-block">
                         <form action="" method="post" class="form-horizontal">
@@ -113,14 +112,14 @@
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction()"><a href="addbook.html">Add Book</a>
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction()"><a href="addbook.html"><div style="color:white;">Add Book</div></a>
                         </button>
-                        <button type="reset" class="btn btn-info btn-sm" onclick="myFunction()"><a href="issueabook.html">
-                         Issue Book</a>
+                        <button type="reset" class="btn btn-info btn-sm" onclick="myFunction()"><a href="issueabook.html"><div style="color:white;">
+                         Issue Book</div></a>
                         </button>
-                        <button type="submit" class="btn btn-success btn-sm" >Renew Book
+                        <button type="submit" class="btn btn-success btn-sm" onclick="myfunction1()">Renew Book
                         </button>
-                        <button type="submit" class="btn btn-warning btn-sm">Free Book
+                        <button type="submit" class="btn btn-warning btn-sm"onclick="myfunction2()"><div style="color:white;">Free Book</div>
                         </button>
                       </div>
                     </div>
@@ -151,6 +150,53 @@
         }
 
         }
+       /* function myfunction1(){
+           const database=require("./js/databases");
+           var bookid=document.getElementById('bookid').value;
+           //console.log(bookid);
+           var today=new Date();
+           var dd=today.getDate();
+           //console.log(dd);
+           
+           
+           var mm=today.getMonth();
+           //console.log(mm);
+           var yy=today.getFullYear();
+           //console.log(yy);
+            mm=mm+2;
+           //console.log(mm);
+           if(mm>12){
+            mm=1;
+            //console.log(mm);
+           }
+           today= yy + '-' + mm + '-' + dd;
+           database.getissuedbook(function(book){
+           for(i=0;i<book.length;i++){
+            var bookid1=book[i].bookid;
+            //console.log(bookid1);
+            var bookid2=book[i]._id;
+            //console.log(bookid2);
+            var userid=book[i].userid;
+            //var today1=book[i].today;
+           //console.log(book[i].bookid);
+            if(bookid1==bookid)
+            {
+                //console.log(userid);
+                //console.log(today);
+                //console.log(bookid);
+                database.updateIssuedBook(bookid2, {bookid, userid, today});
+            }
+            } 
+           });
+
+        } */
+    /*  function myfunction2(){
+         const database=require("./js/databases");
+         var bookid=document.getElementById('bookid').value;
+         //console.log(bookid);
+         database.deleteIssuedBbook(bookid);
+      }   */
+        
       
     </script>
 

@@ -1,7 +1,7 @@
 const electron = require('electron')
 const path = require('path')
 const url = require('url')
-const { app, BrowserWindow, ipcMain: ipc } = electron
+const { app, BrowserWindow, ipcMain: ipc, Menu } = electron
 
 let win
 
@@ -40,14 +40,14 @@ function createWindow () {
     slashes: true
   }))
 
-  
+
 
   // Set up the menu
   var menu = Menu.buildFromTemplate(menuTemplate)
-  dashWindow.setMenu(menu)
+  mainWindow.setMenu(menu)
 
-  dashWindow.on('closed', () => {
-    dashWindow =null
+  mainWindow.on('closed', () => {
+    mainWindow =null
   })
 }
 
@@ -87,7 +87,6 @@ app.on('ready', () => {
 
 // new window open
 exports.openWindow = (filename) => {
-  console.log('paici')
   let win = new BrowserWindow({
     width: 1280,
     height: 720,

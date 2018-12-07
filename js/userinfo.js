@@ -18,6 +18,8 @@ function populateTable() {
       tableBody += '  <td>' + persons[i].udesignation + '</td>';
       tableBody += '  <td>' + persons[i].uemail + '</td>';
       tableBody += '  <td>' + persons[i].uphone + '</td>';
+      tableBody += '  <td>' + persons[i].udept + '</td>';
+      tableBody += '  <td>' + persons[i].uip + '</td>';
       tableBody += '  <td><a href="updateuser.html"><input type="button" class="btn btn-outline-primary" value="Update" onclick="myFunction(\'' + persons[i]._id + '\')"></a></td>'
       tableBody += '  <td><input type="button" class="btn btn-outline-danger" value="Delete" onclick="deletePerson(\'' + persons[i]._id + '\')"></td>'
       tableBody += '</tr>';
@@ -27,15 +29,19 @@ function populateTable() {
     document.getElementById('tablebody').innerHTML = tableBody;
     $(document).ready(function() {
       var t = $('#bootstrap-data-table').DataTable({});
-      console.log(t)
-    })
+    });
+    $.fn.dataTable.ext.errMode = 'none';
+
+    $('#tablebody').on('error.dt', function(e, settings, techNote, message) {
+      console.log('An error has been reported by DataTables: ', message);
+    });
+
   });
 }
 
 // Retrieve the persons
 // Deletes a person
 function deletePerson(id) {
-
   // Delete the person from the database
   database.deletePerson(id);
 
@@ -60,7 +66,7 @@ function edit(id) {
 function myFunction(id) {
 
   if (typeof(Storage) !== "undefined") {
-    var updateBookid = id;
-    localStorage.setItem("updateBookid", updateBookid);
+    var updateUserid = id;
+    localStorage.setItem("userid", updateUserid);
   }
 }

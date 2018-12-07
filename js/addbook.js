@@ -10,9 +10,8 @@ window.onload = function() {
 
     // Retrieve the input fields
     var bookid = document.getElementById('bookid');
-    var booktittle = document.getElementById('btitle');
+    var booktitle = document.getElementById('btitle');
     var authornamee = document.getElementById('authorname');
-    var accessionnumber = document.getElementById('accessionnumber');
     var publishername = document.getElementById('publishername');
     var publishplace = document.getElementById('publishplace');
     var yearofpublishing = document.getElementById('ypublishing');
@@ -23,12 +22,22 @@ window.onload = function() {
     var columnum = document.getElementById('columnum');
 
 
-    // Save the person in the database
-    database.addBook(bookid.value, booktittle.value, authornamee.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value) ;
+    // Save the book in the database if form value is not none
+    if(bookid.value!=="" && booktitle.value!=="" && authorname.value!=="" && publishername.value!=="" && publishplace.value!=="" && yearofpublishing.value!=="" && pagination.value!=="" && remarks.value!=="" && issbn.value!=="" && shelfnum.value!=="" && columnum.value!==""){
+      database.addBook(bookid.value, booktitle.value, authornamee.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value) ;
+      var successMsg = document.getElementById("msg");
+      successMsg.innerHTML= "SUCCESS: Book Added Successfully";
+      successMsg.style.color = "green";
+    }
+    else{
+      var errorMsg = document.getElementById("msg");
+      errorMsg.innerHTML= "ERROR: Please Fill Up All Fields";
+      errorMsg.style.color = "Red";
+    }
 
     // Reset the input fields
     bookid.value = '';
-    booktittle.value = '';
+    booktitle.value = '';
     authornamee.value = '';
     publishername.value = '';
     publishplace.value = '';
@@ -56,7 +65,7 @@ function deletePerson(id) {
  // edit against _id
 function editPerson(id){
   edit(id);
-}  
+}
 
 // create a html form and save it
 function edit(id){
@@ -64,4 +73,3 @@ function edit(id){
 div.style.width = "100px";
 div.innerHTML = '<input type="button" onclick="updatePerson(\'' + id + '\')">';
 }
-

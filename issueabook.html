@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>Library Management System</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,8 +38,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="images/Logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -54,7 +54,6 @@
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
                              <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
-                            <li><i class="menu-icon fa fa-th"></i><a href="freebook.html">Freebook Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
@@ -78,52 +77,14 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-         <header id="header" class="header">
-
-            <div class="header-menu">
-                <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                        </a>
-
-                        <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-                                <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
-                        </div>
-                    </div>
-
-                    <div class="language-select dropdown" id="language-select">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                            <i class="flag-icon flag-icon-us"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="language" >
-                            <div class="dropdown-item">
-                                <span class="flag-icon flag-icon-fr"></span>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-es"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-us"></i>
-                            </div>
-                            <div class="dropdown-item">
-                                <i class="flag-icon flag-icon-it"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </header><!-- /header -->
+    <!-- /header -->
         <!-- Header-->
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Issue Book</h1>
                     </div>
                 </div>
             </div>
@@ -131,9 +92,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Issue Book</a></li>
                             <li><a href="#">Forms</a></li>
-                            <li class="active">Basic</li>
                         </ol>
                     </div>
                 </div>
@@ -166,9 +126,8 @@
                         <button type="submit" id="issuebook" class="btn btn-primary btn-sm" onclick="myFunction()">
                           <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
-                        <button type="reset" class="btn btn-danger btn-sm">
-                          <i class="fa fa-ban"></i> Reset
-                        </button>
+                      </div>
+                      <div class="col" id="msg">
                       </div>
                     </div>
 
@@ -203,29 +162,37 @@
     </script>
     <script>
     function  myFunction(){
+
         const nodemailer = require('nodemailer');
-        const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: '',
-    pass: ''
-  }
-});
+        var smtpTransport = require('nodemailer-smtp-transport');
+        const transporter = nodemailer.createTransport( smtpTransport({
+                host: '172.16.128.40',
+                Port: 587,
+                auth: {
+                user: 'nazmul.hossain',
+                pass: '321',
+            },
+            tls: {
 
-const mailOptions = {
-  from: '',
-  to: '',
-  subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
-};
+               rejectUnauthorized: false
 
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
+            }
+        }));
+
+        const mailOptions = {
+                from: 'nazmul.hossain@squaregroup.com',
+                to: 'himadrichowdhury172@gmail.com',
+                subject: 'Sending Email using Node.js',
+                text: 'Dear user, Your book has been issued under your designantion ID'
+            };
+
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+            });
       }
     </script>
 
