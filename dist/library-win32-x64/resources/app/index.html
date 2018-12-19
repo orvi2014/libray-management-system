@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/flag-icon.min.css">
+    <link rel="stylesheet" href="css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="scss/style.css">
+    <link href="css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <h3>Add a person:</h3>
+    <div class="row">
+      <div class="five columns">
+        <label for="firstname">Firstname</label>
+        <input class="u-full-width" placeholder="John" id="firstname" type="text">
+      </div>
+      <div class="five columns">
+        <label for="lastname">Lastname</label>
+        <input class="u-full-width" placeholder="Doe" id="lastname" type="text">
+      </div>
+      <div class="five columns">
+        <label for="firstname">Title</label>
+        <input class="u-full-width" placeholder="John" id="title" type="text">
+      </div>
+      <div class="five columns">
+        <label for="lastname">Author</label>
+        <input class="u-full-width" placeholder="Doe" id="author" type="text">
+      </div>
+      <div class="two columns">
+        <label for="add" class="invisible">x</label>
+        <input class="button-primary" value="Add" id="add" type="button">
+      </div>
+    </div>
+
+    <h3>All persons:</h3>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Author</th>
+          <th>Title</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tablebody">
+      </tbody>
+      <div id="editform"></div>
+    </table>
+
+  </div>
+
+  <script type="text/javascript">
+    var remote = require('electron').remote;
+    document.addEventListener('keydown', function (e) {
+      if (e.which === 123) {
+        remote.getCurrentWindow().webContents.openDevTools();
+      } else if (e.which === 116) {
+        location.reload();
+      }
+    });
+</script>
+</body>
+</html>
