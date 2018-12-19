@@ -25,7 +25,7 @@ window.onload = function() {
 
     // Save the book in the database if form value is not none
     if(bookid.value!=="" && booktitle.value!=="" && authorname.value!==""){
-      database.addBook(bookid.value, booktitle.value, authornamee.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value, row.value) ;
+      database.addBook(bookid.value, booktitle.value, authorname.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value, row.value) ;
       var successMsg = document.getElementById("msg");
       successMsg.innerHTML= "SUCCESS: Book Added Successfully";
       successMsg.style.color = "green";
@@ -39,7 +39,7 @@ window.onload = function() {
     // Reset the input fields
     bookid.value = '';
     booktitle.value = '';
-    authornamee.value = '';
+    authorname.value = '';
     publishername.value = '';
     publishplace.value = '';
     yearofpublishing.value = '';

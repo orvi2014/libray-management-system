@@ -126,10 +126,6 @@
                     <div class="col-12 col-md-9"><input type="text" id="authorname" name="hf-email" placeholder="Author" class="form-control" required><span class="help-block">Please enter Author name</span></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Edition</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="edition" name="hf-email" placeholder="Edition" class="form-control" required><span class="help-block">Please enter Edition</span></div>
-                  </div>
-                  <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Publisher</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="publishername" name="hf-email" placeholder="Publisher" class="form-control" required><span class="help-block">Please enter Publisher's name</span></div>
                   </div>
@@ -161,10 +157,18 @@
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Column Number</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="columnum"  name="hf-email" placeholder="Column Number" class="form-control" required><span class="help-block">Please enter Colume Number</span></div>
                   </div>
+                   <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Row Number</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="row"  name="hf-email" placeholder="Row Number" class="form-control" required><span class="help-block">Please enter Colume Number</span></div>
+                  </div>
                 </form>
               </div>
               <div class="card-footer" id="button">
               </div>
+               <div class="col" id="msg">
+
+              </div>
+
             </div>
           </div>
 
@@ -214,6 +218,8 @@
               document.getElementById('issbn').value = updateBookid[i].issbn;
               document.getElementById('shelfnum').value = updateBookid[i].shelfnum;
               document.getElementById('columnum').value = updateBookid[i].columnum;
+              document.getElementById('row').value = updateBookid[i].row;
+
               // var d=document.getElementById('bookid').value;
               // console.log(d);
               button += '<button class="btn btn-primary btn-sm" input type="button" value="submit" onclick="updateBook(\'' + updateBookid1 + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
@@ -255,7 +261,8 @@
       var issbn = document.getElementById('issbn').value;
       var shelfnum = document.getElementById('shelfnum').value;
       var columnum = document.getElementById('columnum').value;
-      console.log(id, bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum);
+      var row = document.getElementById('row').value;
+     // console.log(id, bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum,row);
       database.updateBook(id, {
         bookid,
         booktittle,
@@ -267,8 +274,14 @@
         remarks,
         issbn,
         shelfnum,
-        columnum
+        columnum,
+        row
       });
+      if(bookid!="" && booktittle!=""){
+        var successMsg = document.getElementById("msg");
+            successMsg.innerHTML = "Success: Book Updated Successfully"
+            successMsg.style.color ="Green";
+      }
     };
   </script>
 
