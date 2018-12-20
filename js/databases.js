@@ -35,7 +35,7 @@ exports.addPerson = function(userid, uname, udesignation, uemail, uphone, udept,
 
 
 //Add a book
-exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum) {
+exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum, row) {
   //create the book object
   var book = [{
     "bookid": bookid,
@@ -49,6 +49,7 @@ exports.addBook = function(bookid, booktittle, authornamee, publishername, publi
     "issbn": issbn,
     "shelfnum": shelfnum,
     "columnum": columnum,
+    "row": row,
 
   }];
   //save the book to the database
@@ -154,7 +155,8 @@ exports.updateBook = function(id, {
   remarks,
   issbn,
   shelfnum,
-  columnum
+  columnum,
+  row
 }) {
 
   db.update({
@@ -170,7 +172,8 @@ exports.updateBook = function(id, {
     remarks: remarks,
     issbn: issbn,
     shelfnum: shelfnum,
-    columnum: columnum
+    columnum: columnum,
+    row: row
   }, {}, function(err, numReplaced) {
     //console.log(bookid.value);
     // console.log(booktittle.value);

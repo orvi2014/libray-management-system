@@ -112,9 +112,9 @@
                         </form>
                       </div>
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction()"><a href="addbook.html"><div style="color:white;">Add Book</div></a>
+                        <button type="submit" class="btn btn-primary btn-sm" onclick="myFunction(event)"><a href="addbook.html"><div style="color:white;">Add Book</div></a>
                         </button>
-                        <button type="reset" class="btn btn-info btn-sm" onclick="myFunction()"><a href="issueabook.html"><div style="color:white;">
+                        <button type="reset" class="btn btn-info btn-sm" onclick="myFunction(event)"><a href="issueabook.html"><div style="color:white;">
                          Issue Book</div></a>
                         </button>
                         <button type="submit" class="btn btn-success btn-sm" onclick="myfunction1()">Renew Book
@@ -122,6 +122,10 @@
                         <button type="submit" class="btn btn-warning btn-sm"onclick="myfunction2()"><div style="color:white;">Free Book</div>
                         </button>
                       </div>
+                      <div class="col" id="msg">
+
+                      </div>
+
                     </div>
                   
                 </div>
@@ -139,16 +143,21 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script>
-        function myFunction(){
-              // Check browser support
-        if (typeof(Storage) !== "undefined") {
-            // Store
-            var bookid = document.getElementById('bookid').value;
-            localStorage.setItem("bookid", bookid);
-        } else {
-            document.getElementById("tablebody").innerHTML = "Sorry, your browser does not support Web Storage...";
-        }
-
+        function myFunction(event){
+           if (document.getElementById('bookid').value=== ""){
+            var errorMsg = document.getElementById("msg");
+            errorMsg.innerHTML = "ERROR: Please Fill Up Book Id Field"
+            errorMsg.style.color ="Red";
+            event.preventDefault();
+           }
+           if (typeof(Storage)!=="undefined"){
+            // store
+              let bookid =document.getElementById('bookid').value;
+              localStorage.setItem("bookid", bookid);
+           } else {
+            document.getElementById("msg").innerHTML = "your browser do'nt support storage. update it...";
+           }
+                                 
         }
        /* function myfunction1(){
            const database=require("./js/databases");

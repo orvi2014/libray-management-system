@@ -138,6 +138,8 @@
               </div>
               <div class="card-footer" id="button">
               </div>
+               <div class="col" id="msg">
+               </div>
             </div>
           </div>
 
@@ -183,7 +185,7 @@
 
                 button += '<button input type="button" value="submit" class="btn btn-outline-primary" onclick="updateUser(\'' + userid1 + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
                 document.getElementById('button').innerHTML = button;
-              } else {
+           } else {
               console.log("userid not found");
               }
             }
@@ -198,7 +200,7 @@
 
 
         const database = require('./js/databases');
-        console.log(id);
+       // console.log(id);
         var userid = document.getElementById('uid').value;
         var uname = document.getElementById('uname').value;
         var udesignation = document.getElementById('udesignation').value;
@@ -206,16 +208,26 @@
         var uphone = document.getElementById('uphone').value;
         var udept = document.getElementById('udept').value;
         var uip = document.getElementById('uip').value
-        console.log(id, userid, uname, udesignation, uemail, uphone);
-        database.updateUser(id, {
-          userid,
-          uname,
-          udesignation,
-          uemail,
-          uphone,
-          udept,
-          uip
-        });
+       // console.log(id, userid, uname, udesignation, uemail, uphone);
+        if ( userid.value !== "" && uname.value !== "") {
+                        database.updateUser(id, {
+                                              userid,
+                                               uname,
+                                               udesignation,
+                                                 uemail,
+                                                  uphone,
+                                                   udept,
+                                                    uip
+                                                         });
+                        var successMsg = document.getElementById("msg");
+                         successMsg.innerHTML = "SUCCESS: User Updated Successfully";
+                           successMsg.style.color = "green";
+                   } else {
+                            var errorMsg = document.getElementById("msg");
+                            errorMsg.innerHTML = "ERROR: Please Fill Up All Fields";
+                                errorMsg.style.color = "Red";
+                               }
+        
       };
     </script>
 

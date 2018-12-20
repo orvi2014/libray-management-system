@@ -21,7 +21,7 @@ window.onload = function() {
     if (userid.value !== "" && uname.value !== "") {
       database.addPerson(userid.value, uname.value, udesignation.value, uemail.value, uphone.value, udept.value, uip.value);
       var successMsg = document.getElementById("msg");
-      successMsg.innerHTML = "SUCCESS: Book Added Successfully";
+      successMsg.innerHTML = "SUCCESS: User Added Successfully";
       successMsg.style.color = "green";
     } else {
       var errorMsg = document.getElementById("msg");
