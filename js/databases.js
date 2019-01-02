@@ -35,11 +35,12 @@ exports.addPerson = function(userid, uname, udesignation, uemail, uphone, udept,
 
 
 //Add a book
-exports.addBook = function(bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum, row) {
+exports.addBook = function(bookid, acnum, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, bcasenum, shelfnum) {
   //create the book object
   var book = [{
     "bookid": bookid,
     "booktittle": booktittle,
+    "acnum": acnum,
     "authornamee": authornamee,
     "publishername": publishername,
     "publishplace": publishplace,
@@ -47,9 +48,8 @@ exports.addBook = function(bookid, booktittle, authornamee, publishername, publi
     "pagination": pagination,
     "remarks": remarks,
     "issbn": issbn,
+    "bcasenum": bcasenum,
     "shelfnum": shelfnum,
-    "columnum": columnum,
-    "row": row,
 
   }];
   //save the book to the database
@@ -146,6 +146,7 @@ exports.deleteIssuedBbook = function(id) {
 // Updates a person
 exports.updateBook = function(id, {
   bookid,
+  acnum,
   booktittle,
   authornamee,
   publishername,
@@ -154,15 +155,14 @@ exports.updateBook = function(id, {
   pagination,
   remarks,
   issbn,
-  shelfnum,
-  columnum,
-  row
+  shelfnum
 }) {
 
   db.update({
     _id: id
   }, {
     bookid: bookid,
+    acnum: acnum,
     booktittle: booktittle,
     authornamee: authornamee,
     publishername: publishername,
@@ -171,9 +171,8 @@ exports.updateBook = function(id, {
     pagination: pagination,
     remarks: remarks,
     issbn: issbn,
-    shelfnum: shelfnum,
-    columnum: columnum,
-    row: row
+    bcasenum: bcasenum,
+    shelfnum: shelfnum
   }, {}, function(err, numReplaced) {
     //console.log(bookid.value);
     // console.log(booktittle.value);
