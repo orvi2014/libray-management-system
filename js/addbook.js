@@ -10,6 +10,7 @@ window.onload = function() {
 
     // Retrieve the input fields
     var bookid = document.getElementById('bookid');
+    var acnum = document.getElementById('acnum');
     var booktitle = document.getElementById('btitle');
     var authorname = document.getElementById('authorname');
     var publishername = document.getElementById('publishername');
@@ -18,14 +19,13 @@ window.onload = function() {
     var pagination = document.getElementById('pagination');
     var remarks = document.getElementById('remarks');
     var issbn = document.getElementById('issbn');
+    var bcasenum = document.getElementById('bcasenum');
     var shelfnum = document.getElementById('shelfnum');
-    var columnum = document.getElementById('columnum');
-    var row = document.getElementById('row');
 
 
     // Save the book in the database if form value is not none
     if(bookid.value!=="" && booktitle.value!=="" && authorname.value!==""){
-      database.addBook(bookid.value, booktitle.value, authorname.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, shelfnum.value, columnum.value, row.value) ;
+      database.addBook(bookid.value, acnum.value, booktitle.value, authorname.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, bcasenum.value, shelfnum.value) ;
       var successMsg = document.getElementById("msg");
       successMsg.innerHTML= "SUCCESS: Book Added Successfully";
       successMsg.style.color = "green";
@@ -38,6 +38,7 @@ window.onload = function() {
 
     // Reset the input fields
     bookid.value = '';
+    acnum.value='';
     booktitle.value = '';
     authorname.value = '';
     publishername.value = '';
@@ -45,9 +46,8 @@ window.onload = function() {
     yearofpublishing.value = '';
     remarks.value = '';
     issbn.value = '';
+    bcasenum.value= '';
     shelfnum.value = '';
-    columnum.value = '';
-    row.value = '';
     // Repopulate the table
    // populateTable();
   });

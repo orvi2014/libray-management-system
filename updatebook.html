@@ -118,6 +118,10 @@
                     <div class="col-12 col-md-9"><input type="text" id="bookid" name="hf-email" placeholder="Book ID" class="form-control" required><span class="help-block">Please enter Book ID</span></div>
                   </div>
                   <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Accession Number</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="acnum" name="hf-email" placeholder="Accession Number" class="form-control" required><span class="help-block">Please enter ISBN Number</span></div>
+                  </div>
+                  <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-password" class=" form-control-label">Book Title</label></div>
                     <div class="col-12 col-md-9"><input type="text" id="btitle" name="hf-password" placeholder="Book Title" class="form-control" required><span class="help-block">Please enter your book title</span></div>
                   </div>
@@ -150,16 +154,12 @@
                     <div class="col-12 col-md-9"><input type="text" id="issbn" name="hf-email" placeholder="ISBN Number" class="form-control" required><span class="help-block">Please enter ISBN Number</span></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Shelf</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="shelfnum" name="hf-email" placeholder="Shelf" class="form-control" required><span class="help-block">Please enter Shelf Number</span></div>
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Bookcase Number</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="bcasenum" name="hf-email" placeholder="Bookcase Number" class="form-control" required><span class="help-block">Please enter ISBN Number</span></div>
                   </div>
                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Column Number</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="columnum"  name="hf-email" placeholder="Column Number" class="form-control" required><span class="help-block">Please enter Colume Number</span></div>
-                  </div>
-                   <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Row Number</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="row"  name="hf-email" placeholder="Row Number" class="form-control" required><span class="help-block">Please enter Colume Number</span></div>
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Shelf</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="shelfnum" name="hf-email" placeholder="Shelf" class="form-control" required><span class="help-block">Please enter Shelf Number</span></div>
                   </div>
                 </form>
               </div>
@@ -207,6 +207,7 @@
 
             if (updateBookid[i]._id == updateBookid1) {
               document.getElementById('bookid').value = updateBookid[i].bookid;
+              document.getElementById('acnum').value = updateBookid[i].acnum;
               document.getElementById('btitle').value = updateBookid[i].booktittle;
               document.getElementById('authorname').value = updateBookid[i].authornamee;
               //document.getElementById('edition').value= updateBookid[i].bookid;
@@ -216,9 +217,8 @@
               document.getElementById('pagination').value = updateBookid[i].pagination;
               document.getElementById('remarks').value = updateBookid[i].remarks;
               document.getElementById('issbn').value = updateBookid[i].issbn;
+              document.getElementById('bcasenum').value = updateBookid[i].bcasenum;
               document.getElementById('shelfnum').value = updateBookid[i].shelfnum;
-              document.getElementById('columnum').value = updateBookid[i].columnum;
-              document.getElementById('row').value = updateBookid[i].row;
 
               // var d=document.getElementById('bookid').value;
               // console.log(d);
@@ -250,6 +250,7 @@
   populateTable(); */
       console.log(id);
       var bookid = document.getElementById('bookid').value;
+      var acnum = document.getElementById('acnum').value;
       var booktittle = document.getElementById('btitle').value;
       var authornamee = document.getElementById('authorname').value;
       //document.getElementById('edition').value= updateBookid[i].bookid;
@@ -259,12 +260,12 @@
       var pagination = document.getElementById('pagination').value;
       var remarks = document.getElementById('remarks').value;
       var issbn = document.getElementById('issbn').value;
+      var bcasenum = document.getElementById('bcasenum').value;
       var shelfnum = document.getElementById('shelfnum').value;
-      var columnum = document.getElementById('columnum').value;
-      var row = document.getElementById('row').value;
      // console.log(id, bookid, booktittle, authornamee, publishername, publishplace, yearofpublishing, pagination, remarks, issbn, shelfnum, columnum,row);
       database.updateBook(id, {
         bookid,
+        acnum,
         booktittle,
         authornamee,
         publishername,
@@ -273,9 +274,8 @@
         pagination,
         remarks,
         issbn,
-        shelfnum,
-        columnum,
-        row
+        bcasenum,
+        shelfnum
       });
       if(bookid!="" && booktittle!=""){
         var successMsg = document.getElementById("msg");

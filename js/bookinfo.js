@@ -16,6 +16,7 @@ function populateTable() {
     for (i = 0; i < book.length; i++) {
       tableBody += '<tr>';
       tableBody += '  <td>' + book[i].bookid + '</td>';
+      tableBody += '  <td>' + book[i].acnum + '</td>';
       tableBody += '  <td>' + book[i].booktittle + '</td>';
       tableBody += '  <td>' + book[i].authornamee + '</td>';
       tableBody += '  <td>' + book[i].publishername + '</td>';
@@ -24,9 +25,8 @@ function populateTable() {
       tableBody += '  <td>' + book[i].pagination + '</td>';
       tableBody += '  <td>' + book[i].remarks + '</td>';
       tableBody += '  <td>' + book[i].issbn + '</td>';
+      tableBody += '  <td>' + book[i].bcasenum + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
-      tableBody += '  <td>' + book[i].columnum + '</td>';
-      tableBody += '  <td>' + book[i].row + '</td>';
       tableBody += '  <td><a href="updatebook.html"><input type="button" class="btn btn-outline-primary" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
       tableBody += '  <td><input type="button" value="Delete" class="btn btn-outline-danger" onclick="deleteBook(\'' + book[i]._id + '\')"></td>'
       tableBody += '</tr>';

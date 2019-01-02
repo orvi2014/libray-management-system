@@ -170,7 +170,7 @@
          for(i=0;i<persons.length;i++){
                 if(persons[i].userid==userid){
                          var uemail=persons[i].uemail;
-                        console.log(uemail);
+                       // console.log(uemail);
                          var today = new Date();
           //console.log(today);
                           var dd = today.getDate();
@@ -196,6 +196,7 @@
 
                        const nodemailer = require('nodemailer');
                          var smtpTransport = require('nodemailer-smtp-transport');
+                         //console.log(typeof uemail);
                              const transporter = nodemailer.createTransport( smtpTransport({
                                  host: '172.16.128.40',
                                  Port: 587,
@@ -216,17 +217,18 @@
                 subject: 'Sending Email using Node.js',
                 text: 'Dear user, Your book has been issued under your designantion ID'
             };
-
+          console.log(mailOptions);
         transporter.sendMail(mailOptions, function(error, info){
             if (error) {
                 console.log(error);
             } else {
                 console.log('Email sent: ' + info.response);
-            }
-            });
-                     var msg = document.getElementById('msg');
+                 var msg = document.getElementById('msg');
                    msg.innerHTML = "Sucesss: Mail has been sent successfully";
                      msg.style.color = "Green";
+            }
+            });
+                    
                 }
           else{
               count++;
