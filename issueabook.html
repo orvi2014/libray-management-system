@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,15 +30,17 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
+
 <body>
-        <!-- Left Panel -->
+    <!-- Left Panel -->
 
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
             <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu"
+                    aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
@@ -49,21 +54,23 @@
                     </li>
                     <h3 class="menu-title">Library Management elements</h3><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Books</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-laptop"></i>Books</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
-                             <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
+                            <li><i class="menu-icon fa fa-th"></i><a href="issuedbook.html">Issued Book</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>User</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="menu-icon fa fa-table"></i>User</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="userinfo.html">User Info</a></li>
                             <li><i class="fa fa-table"></i><a href="adduser.html">Add User</a></li>
                         </ul>
                     </li>
-                <!-- /.menu-title -->
+                    <!-- /.menu-title -->
                     <li>
                         <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
                     </li>
@@ -77,7 +84,7 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-    <!-- /header -->
+        <!-- /header -->
         <!-- Header-->
 
         <div class="breadcrumbs">
@@ -105,163 +112,169 @@
 
 
                 <div class="row">
-                  <div class="col-lg-6">
-                    <div class="card">
-                      <div class="card-header">
-                        <strong>Book</strong> Form
-                      </div>
-                      <div class="card-body card-block">
-                        <form action="" method="post" class="form-horizontal">
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book ID</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="bookid" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter Book ID</span></div>
-                          </div>
-                          <div class="row form-group">
-                            <div class="col col-md-3"><label for="hf-password" class=" form-control-label">User ID</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="uid" name="hf-password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter user ID</span></div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="card-footer">
-                        <button type="submit" id="issuebook" class="btn btn-primary btn-sm" onclick="myFunction()">
-                          <i class="fa fa-dot-circle-o"></i> Submit
-                        </button>
-                      </div>
-                      <div class="col" id="msg">
-                      </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Book</strong> Form
+                            </div>
+                            <div class="card-body card-block">
+                                <form action="" method="post" class="form-horizontal">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book
+                                                ID</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="bookid" name="hf-email"
+                                                placeholder="Enter Email..." class="form-control"><span class="help-block">Please
+                                                enter Book ID</span></div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="hf-password" class=" form-control-label">User
+                                                ID</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="uid" name="hf-password"
+                                                placeholder="Enter Password..." class="form-control"><span class="help-block">Please
+                                                enter user ID</span></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" id="issuebook" class="btn btn-primary btn-sm" onclick="myFunction()">
+                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                </button>
+                            </div>
+                            <div class="col" id="msg">
+                            </div>
+                        </div>
+
                     </div>
 
-                </div>
+
+                </div><!-- .animated -->
+            </div><!-- .content -->
 
 
-            </div><!-- .animated -->
-        </div><!-- .content -->
+        </div><!-- /#right-panel -->
 
+        <!-- Right Panel -->
 
-    </div><!-- /#right-panel -->
+        <script>
+            window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');
+        </script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            getBookId();
 
-    <!-- Right Panel -->
+            function getBookId() {
+                // Check browser support
+                if (typeof (Storage) !== "undefined") {
+                    // Retrieve
+                    var bookid = (localStorage.getItem("bookid"));
+                    document.getElementById('bookid').value = bookid;
 
-    <script>window.$ = window.jQuery = require('./js/vendor/jquery-2.1.4.min.js');</script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-    <script>getBookId();
-    function getBookId(){
-              // Check browser support
-        if (typeof(Storage) !== "undefined") {
-            // Retrieve
-            var bookid=(localStorage.getItem("bookid"));
-            document.getElementById('bookid').value=bookid;
-
-        } else {
-            document.getElementById("tablebody").innerHTML = "Sorry, your browser does not support Web Storage...";
-        }
-
-        }
-
-    </script>
-    <script>
-    function  myFunction(){
-         const database = require('./js/databases');
-         var userid=document.getElementById('uid').value;
-         var bookid=document.getElementById('bookid').value;
-         var count=0;
-         database.getPersons(function(persons){
-         for(i=0;i<persons.length;i++){
-                if(persons[i].userid==userid){
-                         var uemail=persons[i].uemail;
-                       // console.log(uemail);
-                         var today = new Date();
-          //console.log(today);
-                          var dd = today.getDate();
-                         var mm=today.getMonth();
-                         var yy=today.getFullYear();
-                         mm= mm + 2;
-                         if(mm>12){
-                         yy=yy+1;
-                            mm = 1;
-
-                                 }
-                            today = yy + '-' + mm + '-'+ dd
-          //console.log(mm);
-          //today=mm+dd+yy;
-         // console.log(today);
-      // Save the person in the database
-          //database.issueabook(bookid.value, userid.value);
-                         database.issueabook(bookid, userid, today);
-
-                         // Reset the input fields
-                                 bookid.value = '';
-                                 userid.value = '';
-
-                       const nodemailer = require('nodemailer');
-                         var smtpTransport = require('nodemailer-smtp-transport');
-                         //console.log(typeof uemail);
-                             const transporter = nodemailer.createTransport( smtpTransport({
-                                 host: '172.16.128.40',
-                                 Port: 587,
-                         auth: {
-                                 user: 'nazmul.hossain',
-                                    pass: '321',
-                                         },
-                              tls: {
-
-                                   rejectUnauthorized: false
-
-                                 }
-        }));
-
-        const mailOptions = {
-                from: 'nazmul.hossain@squaregroup.com',
-                to: uemail,
-                subject: 'Sending Email using Node.js',
-                text: 'Dear user, Your book has been issued under your designantion ID'
-            };
-          console.log(mailOptions);
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-                 var msg = document.getElementById('msg');
-                   msg.innerHTML = "Sucesss: Mail has been sent successfully";
-                     msg.style.color = "Green";
-            }
-            });
-                    
+                } else {
+                    document.getElementById("tablebody").innerHTML =
+                        "Sorry, your browser does not support Web Storage...";
                 }
-          else{
-              count++;
 
-          }
-         }
-         if(count==persons.length){
-             var msg = document.getElementById('msg');
-                   msg.innerHTML = "Error: User ID is not registered";
-                     msg.style.color = "Red";
-         }
-         else{
-            
-         }
-         
-         })
-     
-      }
-    </script>
+            }
+        </script>
+        <script>
+            function myFunction() {
+                const database = require('./js/databases');
+                var userid = document.getElementById('uid').value;
+                var bookid = document.getElementById('bookid').value;
+                var count = 0;
+                database.getPersons(function (persons) {
+                    for (i = 0; i < persons.length; i++) {
+                        if (persons[i].userid == userid) {
+                            var uemail = persons[i].uemail;
+                            // console.log(uemail);
+                            let issued_date = new Date();
+                            //console.log(today);
+                            var dd = issued_date.getDate();
+                            var mm = issued_date.getMonth()+1;
+                            var yy = issued_date.getFullYear();
+                            issued_date = yy + '-' + mm + '-' + dd;
+                            console.log(issued_date);
+                            mm = mm + 1;
+                            if (mm > 12) {
+                                yy = yy + 1;
+                                mm = 1;
 
-    <script src="js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="js/dashboard.js"></script>
-    <script src="js/widgets.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.min.js"></script>
-    <script src="js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-    <script src="js/lib/vector-map/country/jquery.vmap.world.js"></script>
-    <script src="js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+                            }
+                            let renew_date = yy + '-' + mm + '-' + dd
+                            database.issueabook(bookid, userid, issued_date, renew_date);
+
+                            // Reset the input fields
+                            bookid.value = '';
+                            userid.value = '';
+
+                            const nodemailer = require('nodemailer');
+                            var smtpTransport = require('nodemailer-smtp-transport');
+                            //console.log(typeof uemail);
+                            const transporter = nodemailer.createTransport(smtpTransport({
+                                host: '172.16.128.40',
+                                Port: 587,
+                                auth: {
+                                    user: 'nazmul.hossain',
+                                    pass: '321',
+                                },
+                                tls: {
+
+                                    rejectUnauthorized: false
+
+                                }
+                            }));
+
+                            const mailOptions = {
+                                from: 'nazmul.hossain@squaregroup.com',
+                                to: uemail,
+                                subject: 'Issued Book COnfirmation',
+                                text: 'Dear user, Your book has been issued under your designantion ID'
+                            };
+                            console.log(mailOptions);
+                            transporter.sendMail(mailOptions, function (error, info) {
+                                if (error) {
+                                    console.log(error);
+                                } else {
+                                    console.log('Email sent: ' + info.response);
+                                    var msg = document.getElementById('msg');
+                                    msg.innerHTML = "Sucesss: Mail has been sent successfully";
+                                    msg.style.color = "Green";
+                                }
+                            });
+
+                        } else {
+                            count++;
+
+                        }
+                    }
+                    if (count == persons.length) {
+                        var msg = document.getElementById('msg');
+                        msg.innerHTML = "Error: User ID is not registered";
+                        msg.style.color = "Red";
+                    } else {
+
+                    }
+
+                })
+
+            }
+        </script>
+
+        <script src="js/lib/chart-js/Chart.bundle.js"></script>
+        <script src="js/dashboard.js"></script>
+        <script src="js/widgets.js"></script>
+        <script src="js/lib/vector-map/jquery.vmap.js"></script>
+        <script src="js/lib/vector-map/jquery.vmap.min.js"></script>
+        <script src="js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+        <script src="js/lib/vector-map/country/jquery.vmap.world.js"></script>
+        <script src="js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
 
 
 
 </body>
+
 </html>

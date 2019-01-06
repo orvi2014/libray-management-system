@@ -228,12 +228,13 @@ exports.updateUser = function(id, {
   });
 }
 
-exports.issueabook = function(bookid, userid, today) {
+exports.issueabook = function(bookid, userid, issued_date, renew_date) {
   //create the book object
   var issuedbook = [{
     "bookid": bookid,
     "userid": userid,
-    "today": today
+    "issued_date": issued_date,
+    "renew_date": renew_date,
 
   }];
   //save the book to the database

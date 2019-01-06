@@ -16,5 +16,6 @@ window.onload = function() {
      
     // Repopulate the table
    // populateTable();
-  });
+  }); 
+})
 }
