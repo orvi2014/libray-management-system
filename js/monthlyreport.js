@@ -25,12 +25,14 @@ function populateTable() {
                     
                     tableBody += '<tr>';
                     tableBody += '  <td>' + book[i].bookid + '</td>';
-                    tableBody += '  <td>' + book[i].userid + '</td>';
-                    tableBody += '<td>' + book[i].issued_date + '</td>';
+                    tableBody += '  <td>' + book[i].uname + '</td>';
+                    tableBody += '  <td>' + book[i].issued_date + '</td>';
+                    tableBody += '  <td>' + book[i].renew_date + '</td>';
                     tableBody += '</tr>';
                 } else {
                     console.log('worked');
                 }
+                
             }
         }
 

@@ -111,10 +111,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Monthly Report</strong>
-                            </div>
                             <div id="customers">
+                                    <div class="card-header">
+                                            <strong class="card-title">Library Report</strong>
+                                    </div>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <colgroup>
                                         <col width="20%">
@@ -125,14 +125,20 @@
                                     <thead>
                                         <tr class='warning'>
                                             <th>Bookid</th>
-                                            <th>userid</th>
-                                            <th>Date</th>
-                                            <th>Age</th>
+                                            <th>User Name</th>
+                                            <th>Issue Date</th>
+                                            <th>Renew Date</sth>
                                         </tr>
                                     </thead>
-                                    <tbody id="tablebody">        
+                                    <tbody id="tablebody"> 
+       
                                     </tbody>
+                                    
                                 </table>
+                                <h6 id="bookcount"></h6>
+                                <h6 id="usercount"></h6>
+                                <h6 id="issuedbookcount"></h6>
+                                <h6 id="freebook"></h6>
                                 <div id='bypassme'></div>
                             </div>
                             <button onclick="javascript:demoFromHTML();" class="btn btn-outline-primary">Generate PDF</button>
@@ -174,6 +180,17 @@
                     normalizeFunction: 'polynomial'
                 });
             })
+            database.bookcount();
+            var bookcount = localStorage.getItem("bookcount");
+            document.getElementById('bookcount').innerHTML = "Total Number of Books: "+ bookcount;
+            database.usercount();
+            var usercount = localStorage.getItem("usercount");
+            document.getElementById('usercount').innerHTML = "Total Number of Users: "+ usercount;
+            database.issuedbookcount();
+            var issuedbookcount = localStorage.getItem("issuedbook");
+            document.getElementById('issuedbookcount').innerHTML = "Total Number of Users: "+ issuedbookcount;
+            var freebook = bookcount - issuedbookcount;
+            document.getElementById('freebook').innerHTML = "Total Number of Freebook: "+ freebook;
 
             function demoFromHTML($) {
                 

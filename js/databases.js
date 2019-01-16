@@ -184,16 +184,18 @@ exports.updateBook = function(id, {
 }
 exports.updateIssuedBook = function(id, {
   bookid,
-  userid,
-  today
+  uname,
+  issued_date,
+  renew_date
 }) {
 
   db1.update({
     _id: id
   }, {
     bookid: bookid,
-    userid: userid,
-    today: today
+    uname: uname,
+    issued_date: issued_date,
+    renew_date: renew_dates
   }, {}, function(err, numReplaced) {
 
 
@@ -228,11 +230,12 @@ exports.updateUser = function(id, {
   });
 }
 
-exports.issueabook = function(bookid, userid, issued_date, renew_date) {
+exports.issueabook = function(bookid, userid, uname, issued_date, renew_date) {
   //create the book object
   var issuedbook = [{
     "bookid": bookid,
     "userid": userid,
+    "uname": uname,
     "issued_date": issued_date,
     "renew_date": renew_date,
 
