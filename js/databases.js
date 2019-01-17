@@ -185,7 +185,7 @@ exports.updateBook = function(id, {
 exports.updateIssuedBook = function(id, {
   bookid,
   userid,
-  today
+  renew_date
 }) {
 
   db1.update({
@@ -193,7 +193,7 @@ exports.updateIssuedBook = function(id, {
   }, {
     bookid: bookid,
     userid: userid,
-    today: today
+    renew_date: renew_date
   }, {}, function(err, numReplaced) {
 
 

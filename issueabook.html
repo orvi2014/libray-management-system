@@ -195,7 +195,7 @@
                             var yy = issued_date.getFullYear();
                             issued_date = yy + '-' + mm + '-' + dd;
                             console.log(issued_date);
-                            mm = mm + 1;
+                            mm = mm + 1                                                                                                                             ;
                             if (mm > 12) {
                                 yy = yy + 1;
                                 mm = 1;
@@ -228,7 +228,7 @@
                             const mailOptions = {
                                 from: 'nazmul.hossain@squaregroup.com',
                                 to: uemail,
-                                subject: 'Issued Book COnfirmation',
+                                subject: 'Issued Book Confirmation',
                                 text: 'Dear user, Your book has been issued under your designantion ID'
                             };
                             console.log(mailOptions);
@@ -249,11 +249,13 @@
                         }
                     }
                     if (count == persons.length) {
-                        var msg = document.getElementById('msg');
+                        let msg = document.getElementById('msg');
                         msg.innerHTML = "Error: User ID is not registered";
                         msg.style.color = "Red";
                     } else {
-
+                        let msg = document.getElementById('msg');
+                        msg.innerHTML = "Success: Sucessfully Issued";
+                        msg.style.color = "Green";
                     }
 
                 })
