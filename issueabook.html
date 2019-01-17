@@ -201,8 +201,9 @@
                                 mm = 1;
 
                             }
-                            let renew_date = yy + '-' + mm + '-' + dd
-                            database.issueabook(bookid, userid, issued_date, renew_date);
+                            let renew_date = yy + '-' + mm + '-' + dd;
+                            let uname = persons[i].uname;
+                            database.issueabook(bookid, userid, uname, issued_date, renew_date);
 
                             // Reset the input fields
                             bookid.value = '';
