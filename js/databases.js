@@ -186,6 +186,7 @@ exports.updateIssuedBook = function(id, {
   bookid,
   uname,
   issued_date,
+  userid,
   renew_date
 }) {
 
@@ -196,6 +197,8 @@ exports.updateIssuedBook = function(id, {
     uname: uname,
     issued_date: issued_date,
     renew_date: renew_dates
+    userid: userid,
+    renew_date: renew_date
   }, {}, function(err, numReplaced) {
 
 

@@ -12,10 +12,8 @@ window.onload = function () {
 
 function populateTable() {
     database.getissuedbook(function (book) {
-
-
         // Generate the table body
-        var tableBody = '';
+        //var tableBody = '';
         for (i = 0; i < book.length; i++) {
             if (typeof (book[i].issued_date) !== "undefined") {
                 let issued_date = ((book[i].issued_date));
@@ -29,6 +27,27 @@ function populateTable() {
                     tableBody += '  <td>' + book[i].issued_date + '</td>';
                     tableBody += '  <td>' + book[i].renew_date + '</td>';
                     tableBody += '</tr>';
+                    let userid = book[i].userid;
+                    let username = checkuserid(userid);
+                    console.log(username);
+                    function checkuserid(userid){
+                        var username;
+                        database.getPersons(function(persons){
+                            
+                            for(i = 0;i < persons.length; i++){
+                                if(userid==persons[i].userid){
+                                    username=persons[i].uname;
+                                    break;
+                                    
+                                }
+                            }
+                            //console.log(username);
+                            
+                        });
+                        console.log(username);
+                        return true;
+                    }
+
                 } else {
                     console.log('worked');
                 }
@@ -36,7 +55,10 @@ function populateTable() {
             }
         }
 
-        // Fill the table content
-        document.getElementById('tablebody').innerHTML = tableBody;
+        
+                // Fill the table content
+       // document.getElementById('tablebody').innerHTML = tableBody;
+        
+        
     });
 }
