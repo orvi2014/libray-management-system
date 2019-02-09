@@ -14,16 +14,17 @@ db2 = new Datastore({
 });
 
 // Adds a person
-exports.addPerson = function(userid, uname, udesignation, uemail, uphone, udept, uip) {
+exports.addPerson = function(userid, uname, udesignation, udept, ucname, uemail, uphone,  uip) {
 
   // Create the person object
   var person = [{
     "userid": userid,
     "uname": uname,
     "udesignation": udesignation,
+    "udept": udept,
+    "ucname": ucname,
     "uemail": uemail,
     "uphone": uphone,
-    "udept": udept,
     "uip": uip
   }];
 
@@ -118,7 +119,7 @@ exports.getissuedbook = function(fnc) {
 exports.deletePerson = function(id) {
 
   db2.remove({
-    _id: id
+    userid: id
   }, {}, function(err, numRemoved) {
     // Do nothing
   });
@@ -126,7 +127,7 @@ exports.deletePerson = function(id) {
 exports.deleteBook = function(id) {
 
   db.remove({
-    _id: id
+    bookid: id
   }, {}, function(err, numRemoved) {
 
 
@@ -155,11 +156,12 @@ exports.updateBook = function(id, {
   pagination,
   remarks,
   issbn,
+  bcasenum,
   shelfnum
 }) {
 
   db.update({
-    _id: id
+    bookid: id
   }, {
     bookid: bookid,
     acnum: acnum,
@@ -184,9 +186,9 @@ exports.updateBook = function(id, {
 }
 exports.updateIssuedBook = function(id, {
   bookid,
+  userid,
   uname,
   issued_date,
-  userid,
   renew_date
 }) {
 
@@ -194,10 +196,9 @@ exports.updateIssuedBook = function(id, {
     _id: id
   }, {
     bookid: bookid,
+    userid: userid,
     uname: uname,
     issued_date: issued_date,
-    renew_date: renew_dates
-    userid: userid,
     renew_date: renew_date
   }, {}, function(err, numReplaced) {
 
@@ -210,20 +211,22 @@ exports.updateUser = function(id, {
   userid,
   uname,
   udesignation,
+  udept,
+  ucname,
   uemail,
   uphone,
-  udept,
   uip
 }) {
   db2.update({
-    _id: id
+    userid: id
   }, {
     userid: userid,
     uname: uname,
     udesignation: udesignation,
+    udept: udept,
+    ucname: ucname,
     uemail: uemail,
     uphone: uphone,
-    udept: udept,
     uip: uip
   }, {}, function(err, numReplaced) {
     // numReplaced = 1

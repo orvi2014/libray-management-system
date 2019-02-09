@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sufee Admin - HTML5 Admin Template</title>
+  <title>square </title>
   <meta name="description" content="Sufee Admin - HTML5 Admin Template">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -73,6 +73,9 @@
           <li>
             <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
           </li>
+          <li>
+            <a href="report.html"> <i class="fa fa-report"></i>Report </a>
+        </li>
       </div><!-- /.navbar-collapse -->
     </nav>
   </aside>
@@ -239,7 +242,7 @@
               // console.log(d);
               button +=
                 '<button class="btn btn-primary btn-sm" input type="button" value="submit" onclick="updateBook(\'' +
-                updateBookid1 + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
+                updateBookid[i].bookid + '\' , \'' + updateBookid[i].acnum + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
               document.getElementById('button').innerHTML = button;
             } else {
 
@@ -256,7 +259,7 @@
 
     };
     //update book
-    function updateBook(id) {
+    function updateBook(id, id1) {
       const database = require('./js/databases');
       /*  var firstname = document.getElementById('first').value;
   var lastname = document.getElementById('last').value;
@@ -265,9 +268,10 @@
   console.log(firstname,lastname,author,title);
   database.updatePerson(id,{firstname,lastname, title, author});
   populateTable(); */
-      console.log(id);
-      var bookid = document.getElementById('bookid').value;
-      var acnum = document.getElementById('acnum').value;
+      //console.log(id);
+      //console.log(id1);
+      var bookid =id;
+      var acnum =id1;
       var booktittle = document.getElementById('btitle').value;
       var authornamee = document.getElementById('authorname').value;
       //document.getElementById('edition').value= updateBookid[i].bookid;

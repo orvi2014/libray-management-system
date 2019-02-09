@@ -28,7 +28,7 @@ function populateTable() {
       tableBody += '  <td>' + book[i].bcasenum + '</td>';
       tableBody += '  <td>' + book[i].shelfnum + '</td>';
       tableBody += '  <td><a href="updatebook.html"><input type="button" class="btn btn-outline-primary" value="Update" onclick="myFunction(\'' + book[i]._id + '\')"></a></td>'
-      tableBody += '  <td><input type="button" value="Delete" class="btn btn-outline-danger" onclick="deleteBook(\'' + book[i]._id + '\')"></td>'
+      tableBody += '  <td><input type="button" value="Delete" class="btn btn-outline-danger" onclick="popupmsg(\'' + book[i].bookid + '\')"></td>'
       tableBody += '</tr>';
     }
 
@@ -45,7 +45,38 @@ function populateTable() {
 
   });
 }
+function popupmsg(id) {
+  console.log(id);
+  var txt;
+  var count =0;
+  if (confirm("Do you want to delete the book")) {
+        database.getissuedbook(function(books){
+        for(i=0;i<books.length;i++){
+          if(books[i].bookid==id){
+            count++;
+          }
+          else{
+            
+          }
 
+        }
+        if(count==0){
+          database.deleteBook(id);
+          alert("Book is deleted successfully");
+        }
+        else{
+          alert("Book is issued, can not delete it now");
+        }
+ 
+        });       
+    // var errorMsg = document.getElementById("msg");
+            //errorMsg.innerHTML = "Success: Book is deleted successfully";
+            //errorMsg.style.color = "Green";
+  } else {
+   // txt = "You pressed Cancel!";
+  }
+  //document.getElementById("demo").innerHTML = txt;
+}
 // Deletes a person
 function deleteBook(id) {
 

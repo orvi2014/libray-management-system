@@ -21,19 +21,36 @@ window.onload = function() {
     var issbn = document.getElementById('issbn');
     var bcasenum = document.getElementById('bcasenum');
     var shelfnum = document.getElementById('shelfnum');
-
-
-    // Save the book in the database if form value is not none
-    if(bookid.value!=="" && booktitle.value!=="" && authorname.value!==""){
+    var count =0;
+    //check bookid is available or not
+    database.getBooks(function(books){
+    for(i=0;i<books.length;i++){
+      if(books[i].bookid!=bookid.value){
+        count++;
+  
+       }
+       else{
+         
+       }
+    }
+    if(bookid.value!=="" && booktitle.value!=="" && authorname.value!=="" && count==books.length){
       database.addBook(bookid.value, acnum.value, booktitle.value, authorname.value, publishername.value, publishplace.value, yearofpublishing.value, pagination.value, remarks.value, issbn.value, bcasenum.value, shelfnum.value) ;
       var successMsg = document.getElementById("msg");
       successMsg.innerHTML= "SUCCESS: Book Added Successfully";
       successMsg.style.color = "green";
     }
     else{
-      var errorMsg = document.getElementById("msg");
-      errorMsg.innerHTML= "ERROR: Please Fill Up All Fields";
+      if(count!=books.length){
+        var errorMsg = document.getElementById("msg");
+      errorMsg.innerHTML= "ERROR: Book is added already";
       errorMsg.style.color = "Red";
+      }
+      else{
+        var errorMsg = document.getElementById("msg");
+        errorMsg.innerHTML= "ERROR: Please Fill Up All Fields";
+        errorMsg.style.color = "Red";
+      }
+     
     }
 
     // Reset the input fields
@@ -50,6 +67,10 @@ window.onload = function() {
     shelfnum.value = '';
     // Repopulate the table
    // populateTable();
+
+    })
+    // Save the book in the database if form value is not none
+   
   });
 }
 

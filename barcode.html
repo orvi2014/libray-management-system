@@ -67,6 +67,9 @@
                     <li>
                         <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
                     </li>
+                    <li>
+                        <a href="report.html"> <i class="fa fa-report"></i>Report </a>
+                    </li>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
@@ -104,10 +107,10 @@
                         <strong>Form</strong>
                       </div>
                       <div class="card-body card-block">
-                        <form action="" method="post" class="form-horizontal">
+                        <form action="" method="post" class="form-horizontal" onsubmit="return false;">
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Book ID</label></div>
-                            <div class="col-12 col-md-9"><input type="email" id="bookid" name="hf-email" placeholder="Scan the Barcode" class="form-control"><span class="help-block">Please enter bookid</span></div>
+                            <div class="col-12 col-md-9"><input type="number" id="bookid" name="hf-email" placeholder="Scan the Barcode" class="form-control"><span class="help-block">Please enter bookid</span></div>
                           </div>
                         </form>
                       </div>
@@ -119,7 +122,8 @@
                         </button>
                         <button type="submit" class="btn btn-success btn-sm" onclick="myfunction1()">Renew Book
                         </button>
-                        <button type="submit" class="btn btn-warning btn-sm"onclick="myfunction2()"><div style="color:white;">Free Book</div>
+                        <button type="submit" class="btn btn-warning btn-sm" onclick="myfunction2()"><a href="#"><div style="color:white;">
+                            Free Book</div></a>
                         </button>
                       </div>
                       <div class="col" id="msg">
@@ -159,7 +163,7 @@
            }
                                  
         }
-       /* function myfunction1(){
+      /*   function myfunction1(){
            const database=require("./js/databases");
            var bookid=document.getElementById('bookid').value;
            //console.log(bookid);
@@ -178,7 +182,7 @@
             mm=1;
             //console.log(mm);
            }
-           today= yy + '-' + mm + '-' + dd;
+           renew_date= yy + '-' + mm + '-' + dd;
            database.getissuedbook(function(book){
            for(i=0;i<book.length;i++){
             var bookid1=book[i].bookid;
@@ -186,6 +190,8 @@
             var bookid2=book[i]._id;
             //console.log(bookid2);
             var userid=book[i].userid;
+            var uname=book[i].uname;
+            var issued_date=book[i].issued_date;
             //var today1=book[i].today;
            //console.log(book[i].bookid);
             if(bookid1==bookid)
@@ -193,17 +199,21 @@
                 //console.log(userid);
                 //console.log(today);
                 //console.log(bookid);
-                database.updateIssuedBook(bookid2, {bookid, userid, today});
+                database.updateIssuedBook(bookid2, {bookid, userid, uname, issued_date, renew_date});
             }
             } 
            });
-
         } */
-    /*  function myfunction2(){
+
+        
+  /*    function myfunction2(){
          const database=require("./js/databases");
          var bookid=document.getElementById('bookid').value;
          //console.log(bookid);
          database.deleteIssuedBbook(bookid);
+         let msg = document.getElementById('msg');
+                        msg.innerHTML = "Success: Book is Freed Successfully";
+                        msg.style.color = "Green";
       }   */
         
       

@@ -5,59 +5,77 @@ let today_month = today.getMonth() + 1;
 let today_date = today.getDate();
 
 // Populates the Monthly Report table
-window.onload = function () {
-    populateTable();
+window.onload = function() {
 
+  // Populate the table
+  populateTable();
+
+  // Add the add button click event
+  
 }
 
 function populateTable() {
     database.getissuedbook(function (book) {
         // Generate the table body
-        //var tableBody = '';
+       
+        
         for (i = 0; i < book.length; i++) {
-            if (typeof (book[i].issued_date) !== "undefined") {
-                let issued_date = ((book[i].issued_date));
+          //  console.log(issuedBookName[i]);
+            if (typeof (book[i].renew_date) !== "undefined") {
+                let renew_date = ((book[i].renew_date));
                 let regexp = new RegExp('-');
-                issued_date = (issued_date.split(regexp));
-                if (today_date >= issued_date[2] && today_month >= issued_date[1] && today_year >= issued_date[0]) {
+                renew_date = (renew_date.split(regexp));
+                if (today_date >= renew_date[2] && today_month >= renew_date[1] && today_year >= renew_date[0]) {
+                   // console.log(renew_date);
+                   let bookID=book[i].bookid;
+                   let uname=book[i].uname;
+                   let issued_date=book[i].issued_date;
+                   let renew_date=book[i].renew_date;
+//                     console.log(bookID);
+                          getName(bookID,uname,issued_date,renew_date)
+                  function getName(bookID, uname, issued_date, renew_date) {
+                      console.log(bookID);
+                      database.getBooks(function (books) {
+                          let tableBody = '';
+                          for (var j = 0; j < books.length; j++) {
+                              let name = '';
+
+                              if (bookID == books[j].bookid) {
+                                  //issuedBookName[j]=books[i].booktittle ;
+                                  // console.log(books[i].booktittle);
+                                  //console.log(books[i].booktittle);
+                                  name = books[j].booktittle;
+                                  console.log(name);
+                                  // console.log(name);
+                                  //console.log(bookID);
+                                  tableBody += '<tr>';
+                                  tableBody += '  <td>' + bookID + '</td>';
+                                  tableBody += '  <td>' + name + '</td>';
+                                  tableBody += '  <td>' + uname + '</td>';
+                                  tableBody += '  <td>' + issued_date + '</td>';
+                                  tableBody += '  <td>' + renew_date + '</td>';
+                                  tableBody += '</tr>';
+                              } else {
+
+                              }
+                          }
+                          document.getElementById('tablebody1').innerHTML = tableBody;
+
+                      });
+                  }
+                  //  console.log(name);
+                   
                     
-                    tableBody += '<tr>';
-                    tableBody += '  <td>' + book[i].bookid + '</td>';
-                    tableBody += '  <td>' + book[i].uname + '</td>';
-                    tableBody += '  <td>' + book[i].issued_date + '</td>';
-                    tableBody += '  <td>' + book[i].renew_date + '</td>';
-                    tableBody += '</tr>';
-                    let userid = book[i].userid;
-                    let username = checkuserid(userid);
-                    console.log(username);
-                    function checkuserid(userid){
-                        var username;
-                        database.getPersons(function(persons){
-                            
-                            for(i = 0;i < persons.length; i++){
-                                if(userid==persons[i].userid){
-                                    username=persons[i].uname;
-                                    break;
-                                    
-                                }
-                            }
-                            //console.log(username);
-                            
-                        });
-                        console.log(username);
-                        return true;
-                    }
 
                 } else {
                     console.log('worked');
                 }
-                
             }
         }
 
         
                 // Fill the table content
-       // document.getElementById('tablebody').innerHTML = tableBody;
+       
         
         
     });

@@ -74,6 +74,9 @@
                     <li>
                         <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
                     </li>
+                    <li>
+                        <a href="report.html"> <i class="fa fa-report"></i>Report </a>
+                    </li>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
@@ -130,7 +133,7 @@
                                         <div class="col col-md-3"><label for="hf-password" class=" form-control-label">User
                                                 ID</label></div>
                                         <div class="col-12 col-md-9"><input type="text" id="uid" name="hf-password"
-                                                placeholder="Enter Password..." class="form-control"><span class="help-block">Please
+                                                placeholder="Enter User ID" class="form-control"><span class="help-block">Please
                                                 enter user ID</span></div>
                                     </div>
                                 </form>
@@ -183,7 +186,31 @@
                 var userid = document.getElementById('uid').value;
                 var bookid = document.getElementById('bookid').value;
                 var count = 0;
-                database.getPersons(function (persons) {
+                var count1 = 0;
+                database.getBooks(function(books){
+                    for(i=0;i<books.length;i++){
+                        if(books[i].bookid==bookid){
+                            count1++;
+                        }
+                        else{
+
+                        }
+                    }
+
+
+
+                })
+                database.getissuedbook(function(books){
+                    for(i=0;i<books.length;i++){
+                        if(books[i].bookid==bookid){
+                            count++;
+                        }
+                        else{
+
+                        }
+                    }
+                    if(count==0 && count1==1){
+                        database.getPersons(function (persons) {
                     for (i = 0; i < persons.length; i++) {
                         if (persons[i].userid == userid) {
                             var uemail = persons[i].uemail;
@@ -260,6 +287,16 @@
                     }
 
                 })
+                    }
+                    else{
+                        let msg = document.getElementById('msg');
+                        msg.innerHTML = "Error: Book is already issued or Book does not exist, please check";
+                        msg.style.color = "Red";
+                    }
+                    
+
+                })
+                
 
             }
         </script>

@@ -265,7 +265,7 @@
                     //var finalfix= fix.includes(monthh, 3);
                     //console.log(fix.indexOf("-10-"));
                     //
-                    var fix = String(books[i].today);
+                    var fix = String(books[i].renew_date);
                     console.log(fix);
 
                     function findNewProgrammingLanguage(language) {
@@ -274,7 +274,7 @@
                             tablebody += '<tr>';
                             tablebody += '<td>' + books[i].bookid + '</td>';
                             tablebody += '<td>' + books[i].userid + '</td>';
-                            tablebody += '<td>' + books[i].today + '</td>';
+                            tablebody += '<td>' + books[i].renew_date + '</td>';
                             tablebody += '</tr>';
                             document.getElementById("tablebody").innerHTML = tablebody;
 

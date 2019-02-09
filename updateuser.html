@@ -39,9 +39,10 @@
     <nav class="navbar navbar-expand-sm navbar-default">
 
       <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars"></i>
+        </button>
         <a class="navbar-brand" href="./"><img src="images/square.jpg" alt="Logo"></a>
         <a class="navbar-brand hidden" href="./"><img src="#" alt="Logo"></a>
       </div>
@@ -53,7 +54,8 @@
           </li>
           <h3 class="menu-title">Library Management elements</h3><!-- /.menu-title -->
           <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Books</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                class="menu-icon fa fa-laptop"></i>Books</a>
             <ul class="sub-menu children dropdown-menu">
               <li><i class="fa fa-puzzle-piece"></i><a href="bookinfo.html">Book Info</a></li>
               <li><i class="fa fa-id-badge"></i><a href="addbook.html">Add new Book</a></li>
@@ -61,7 +63,8 @@
             </ul>
           </li>
           <li class="menu-item-has-children dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>User</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
+                class="menu-icon fa fa-table"></i>User</a>
             <ul class="sub-menu children dropdown-menu">
               <li><i class="fa fa-table"></i><a href="userinfo.html">User Info</a></li>
               <li><i class="fa fa-table"></i><a href="adduser.html">Add User</a></li>
@@ -70,6 +73,9 @@
           <!-- /.menu-title -->
           <li>
             <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
+          </li>
+          <li>
+            <a href="report.html"> <i class="fa fa-report"></i>Report </a>
           </li>
       </div><!-- /.navbar-collapse -->
     </nav>
@@ -108,38 +114,50 @@
                 <form action="" method="post" class="form-horizontal">
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">User ID</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="uid" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter User ID</span></div>
+                    <div class="col-12 col-md-9"><input type="email" id="uid" name="hf-email" placeholder="Enter Email..."
+                        class="form-control"><span class="help-block">Please enter User ID</span></div>
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">User Name</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="uname" name="hf-password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter User Name</span></div>
+                    <div class="col-12 col-md-9"><input type="text" id="uname" name="hf-password" placeholder="Enter Password..."
+                        class="form-control"><span class="help-block">Please enter User Name</span></div>
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Designation</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="udesignation" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter User Designation</span></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Email</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="uemail" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter User Email ID</span></div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Phone Number</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="uphone" name="hf-email" placeholder="Enter Email..." class="form-control"><span class="help-block">Please enter User Phone Number</span></div>
+                    <div class="col-12 col-md-9"><input type="email" id="udesignation" name="hf-email" placeholder="Enter Email..."
+                        class="form-control"><span class="help-block">Please enter User Designation</span></div>
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Department Name</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="udept" name="hf-email" placeholder="Department Name" class="form-control"><span class="help-block">Please enter User Phone Number</span></div>
+                    <div class="col-12 col-md-9"><input type="email" id="udept" name="hf-email" placeholder="Department Name"
+                        class="form-control"><span class="help-block">Please enter User Department Name</span></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Company Name</label></div>
+                    <div class="col-12 col-md-9"><input type="email" id="ucname" name="hf-email" placeholder="Company Name"
+                        class="form-control"><span class="help-block">Please enter User Company Name</span></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Email</label></div>
+                    <div class="col-12 col-md-9"><input type="email" id="uemail" name="hf-email" placeholder="Enter Email..."
+                        class="form-control"><span class="help-block">Please enter User Email ID</span></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">Phone Number</label></div>
+                    <div class="col-12 col-md-9"><input type="email" id="uphone" name="hf-email" placeholder="Enter Email..."
+                        class="form-control"><span class="help-block">Please enter User Phone Number</span></div>
                   </div>
                   <div class="row form-group">
                     <div class="col col-md-3"><label for="hf-email" class=" form-control-label">IP No</label></div>
-                    <div class="col-12 col-md-9"><input type="email" id="uip" name="hf-email" placeholder="IP NO" class="form-control"><span class="help-block">Please enter User Phone Number</span></div>
+                    <div class="col-12 col-md-9"><input type="email" id="uip" name="hf-email" placeholder="IP NO" class="form-control"><span
+                        class="help-block">Please enter User IP Number</span></div>
                   </div>
                 </form>
               </div>
               <div class="card-footer" id="button">
               </div>
-               <div class="col" id="msg">
-               </div>
+              <div class="col" id="msg">
+              </div>
             </div>
           </div>
 
@@ -164,29 +182,32 @@
       function getPersons() {
 
         const database = require('./js/databases');
-        if (typeof(Storage) !== "undefined") {
+        if (typeof (Storage) !== "undefined") {
 
           var userid = (localStorage.getItem("userid"));
           console.log(userid);
           //console.log(userid)
           var userid1 = userid;
           var button = '';
-          database.getPersons(function(userid) {
+          database.getPersons(function (userid) {
             for (i = 0; i < userid.length; i++) {
               if (userid[i]._id == userid1) {
                 document.getElementById('uid').value = userid[i].userid;
                 document.getElementById('uname').value = userid[i].uname;
                 document.getElementById('udesignation').value = userid[i].udesignation;
+                document.getElementById('udept').value = userid[i].udept;
+                document.getElementById('ucname').value = userid[i].ucname;
                 document.getElementById('uemail').value = userid[i].uemail;
                 //document.getElementById('edition').value= updateBookid[i].bookid;
                 document.getElementById('uphone').value = userid[i].uphone;
-                document.getElementById('udept').value = userid[i].udept;
                 document.getElementById('uip').value = userid[i].uip;
 
-                button += '<button input type="button" value="submit" class="btn btn-outline-primary" onclick="updateUser(\'' + userid1 + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
+                button +=
+                  '<button input type="button" value="submit" class="btn btn-outline-primary" onclick="updateUser(\'' +
+                  userid[i].userid + '\')"><i class="fa fa-dot-circle-o"></i>Submit</button>';
                 document.getElementById('button').innerHTML = button;
-           } else {
-              console.log("userid not found");
+              } else {
+                console.log("userid not found");
               }
             }
           });
@@ -200,34 +221,36 @@
 
 
         const database = require('./js/databases');
-       // console.log(id);
-        var userid = document.getElementById('uid').value;
+        // console.log(id);
+        var userid = id;
         var uname = document.getElementById('uname').value;
         var udesignation = document.getElementById('udesignation').value;
+        var udept = document.getElementById('udept').value;
+        var ucname = document.getElementById('ucname').value;
         var uemail = document.getElementById('uemail').value;
         var uphone = document.getElementById('uphone').value;
-        var udept = document.getElementById('udept').value;
         var uip = document.getElementById('uip').value
-       // console.log(id, userid, uname, udesignation, uemail, uphone);
-        if ( userid.value !== "" && uname.value !== "") {
-                        database.updateUser(id, {
-                                              userid,
-                                               uname,
-                                               udesignation,
-                                                 uemail,
-                                                  uphone,
-                                                   udept,
-                                                    uip
-                                                         });
-                        var successMsg = document.getElementById("msg");
-                         successMsg.innerHTML = "SUCCESS: User Updated Successfully";
-                           successMsg.style.color = "green";
-                   } else {
-                            var errorMsg = document.getElementById("msg");
-                            errorMsg.innerHTML = "ERROR: Please Fill Up All Fields";
-                                errorMsg.style.color = "Red";
-                               }
-        
+        // console.log(id, userid, uname, udesignation, uemail, uphone);
+        if (userid.value !== "" && uname.value !== "") {
+          database.updateUser(id, {
+            userid,
+            uname,
+            udesignation,
+            udept,
+            ucname,
+            uemail,
+            uphone,
+            uip
+          });
+          var successMsg = document.getElementById("msg");
+          successMsg.innerHTML = "SUCCESS: User Updated Successfully";
+          successMsg.style.color = "green";
+        } else {
+          var errorMsg = document.getElementById("msg");
+          errorMsg.innerHTML = "ERROR: Please Fill Up All Fields";
+          errorMsg.style.color = "Red";
+        }
+
       };
     </script>
 
@@ -241,7 +264,7 @@
     <script src="js/vendor/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
       var remote = require('electron').remote;
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.which === 123) {
           remote.getCurrentWindow().webContents.openDevTools();
         } else if (e.which === 116) {
