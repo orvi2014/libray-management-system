@@ -19,7 +19,7 @@ function populateTable(numberOfDays){
     database.getissuedbook(function (book) {
         // Generate the table body
        
-        
+        let tableBody = '';
         for (i = 0; i < book.length; i++) {
           //  console.log(issuedBookName[i]);
             if (typeof (book[i].issued_date) !== "undefined") {
@@ -43,7 +43,7 @@ function populateTable(numberOfDays){
                           getName(bookID,uname,issued_date,renew_date)
                  function getName(bookID,uname,issued_date,renew_date, numberOfDays){
         console.log(bookID);                 
-                    let tableBody = '';
+                    
                     database.getBooks(function(books){
                         
                         for(var j=0;j<books.length;j++){
