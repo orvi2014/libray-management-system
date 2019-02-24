@@ -155,7 +155,7 @@
                         <div class="card">
                             <div id="customers">
                                     <div class="card-header">
-                                            <strong class="card-title">Library Report</strong>
+                                            <strong class="card-title">Issued Book List</strong>
                                     </div>
                                 <table id="bootstrap-data-table" class="table table-striped">
                                     <colgroup>
@@ -204,12 +204,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
 
         <script>
-
         </script>
         <script>
             (function ($) {
                 "use strict";
-
                 jQuery('#vmap').vectorMap({
                     map: 'world_en',
                     backgroundColor: null,
@@ -234,7 +232,6 @@
             document.getElementById('issuedbookcount').innerHTML = "Total Number of Issued Books: "+ issuedbookcount;
             var freebook = bookcount - issuedbookcount;
             document.getElementById('freebook').innerHTML = "Total Number of Freebook: "+ freebook;
-
             function demoFromHTML($) {
                 
                 
@@ -264,7 +261,6 @@
                         'width': margins.width, // max width of content on PDF
                         'elementHandlers': specialElementHandlers
                     },
-
                     function (dispose) {
                         // dispose: object with X, Y of the last line add to the PDF 
                         //          this allow the insertion of new lines after html

@@ -24,9 +24,9 @@ function populateTable() {
         let regexp = new RegExp("-");
         renew_date = renew_date.split(regexp);
         if (
-          today_date >= renew_date[2] &&
+          today_date >= renew_date[0] &&
           today_month >= renew_date[1] &&
-          today_year >= renew_date[0]
+          today_year >= renew_date[2]
         ) {
           // console.log(renew_date);
           let bookID = book[i].bookid;

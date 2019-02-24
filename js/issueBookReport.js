@@ -20,21 +20,36 @@ function populateTable(numberOfDays){
         // Generate the table body
        
         let tableBody = '';
+        let limit=numberOfDays;
+        let upperLimitDay= today_date - limit;
+        let previouMonthDate = 0;
+        let previousMonth =0;
+       
+        console.log(upperLimitDay);
+        if(upperLimitDay<0){
+            let newUpperLimitDay = Math.abs(upperLimitDay);
+            previousMonth = today_month - 1;
+            console.log(newUpperLimitDay)
+            console.log(previousMonth);
+            for(i=1;i<newUpperLimitDay;i++){
+                previouMonthDate= 31 - i;
+            }
+            console.log(previouMonthDate);
+        }
         for (i = 0; i < book.length; i++) {
           //  console.log(issuedBookName[i]);
             if (typeof (book[i].issued_date) !== "undefined") {
                 let issued_date = ((book[i].issued_date));
                 let regexp = new RegExp('-');
-                let limit=numberOfDays;
-                let upperLimitDay= today_date - limit;
-                console.log(upperLimitDay);
                 issued_date = (issued_date.split(regexp));
-                console.log(issued_date);
-                console.log(issued_date[2]);
-                console.log(upperLimitDay);
-                console.log(today_date);
-                if (issued_date[2] >= upperLimitDay && issued_date[2] <= today_date) {
+               // console.log(issued_date);
+                //console.log(issued_date[2]);
+                //console.log(upperLimitDay);
+                //console.log(today_date);
+               
+                if ((issued_date[0] >= upperLimitDay && issued_date[0] <= today_date && issued_date[1]==today_month) || (issued_date[0]>= previouMonthDate && issued_date[1]==previousMonth ) ) {
                    // console.log(renew_date);
+                   console.log(previousMonth);
                    let bookID=book[i].bookid;
                    let uname=book[i].uname;
                    let issued_date=book[i].issued_date;

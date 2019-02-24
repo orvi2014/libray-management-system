@@ -100,9 +100,14 @@
                     <li>
                         <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
                     </li>
-                    <li>
-                        <a href="report.html"> <i class="fa fa-report"></i>Report </a>
-                    </li>
+                    <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-table"></i>Reports</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="report.html">Renew Report</a></li>
+                                <li><i class="fa fa-table"></i><a href="report1.html">Issued Book Report</a></li>
+                            </ul>
+                        </li>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
@@ -113,46 +118,14 @@
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
-        <header id="header" class="header">
-
-            <div class="header-menu">
-                <div class="col-sm-5">
-
-                </div>
-            </div>
-
-        </header><!-- /header -->
+<!-- /header -->
         <!-- Header-->
-
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>User Info</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li><a href="#">User Info</a></li>
-                            <li><a href="#">Table</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">All Users Info Table</strong>
-                        </div>
                         <div class="card-body">
                   <table id="bootstrap-data-table" class="table table-striped table-bordered">
                     <thead>

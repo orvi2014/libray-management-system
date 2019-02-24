@@ -74,9 +74,14 @@
                     <li>
                         <a href="barcode.html"> <i class="fa fa-barcode"></i>Barcode </a>
                     </li>
-                    <li>
-                        <a href="report.html"> <i class="fa fa-report"></i>Report </a>
-                    </li>
+                    <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-table"></i>Reports</a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="report.html">Renew Report</a></li>
+                                <li><i class="fa fa-table"></i><a href="report1.html">Issued Book Report</a></li>
+                            </ul>
+                        </li>
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside>
@@ -187,10 +192,13 @@
                 var bookid = document.getElementById('bookid').value;
                 var count = 0;
                 var count1 = 0;
+                let bookName = '';
                 database.getBooks(function(books){
                     for(i=0;i<books.length;i++){
                         if(books[i].bookid==bookid){
                             count1++;
+                            bookName = books[i].booktittle;
+                            console.log(bookName);
                         }
                         else{
 
@@ -220,7 +228,7 @@
                             var dd = issued_date.getDate();
                             var mm = issued_date.getMonth()+1;
                             var yy = issued_date.getFullYear();
-                            issued_date = yy + '-' + mm + '-' + dd;
+                            issued_date = dd + '-' + mm + '-' + yy;
                             console.log(issued_date);
                             mm = mm + 1                                                                                                                             ;
                             if (mm > 12) {
@@ -228,10 +236,10 @@
                                 mm = 1;
 
                             }
-                            let renew_date = yy + '-' + mm + '-' + dd;
+                            let renew_date = dd + '-' + mm + '-' + yy;
                             let uname = persons[i].uname;
+                            console.log(uname);
                             database.issueabook(bookid, userid, uname, issued_date, renew_date);
-
                             // Reset the input fields
                             bookid.value = '';
                             userid.value = '';
@@ -252,12 +260,13 @@
 
                                 }
                             }));
-
+                            let text= 'Dear' + ' ' + uname + ',' + 'A book has been named, '+ bookName + 'is issued under you employee ID. Issued date: ' + issued_date + 'and renew date is' + renew_date;
+                            console.log(text);
                             const mailOptions = {
                                 from: 'nazmul.hossain@squaregroup.com',
                                 to: uemail,
                                 subject: 'Issued Book Confirmation',
-                                text: 'Dear user, Your book has been issued under your designantion ID'
+                                text: text
                             };
                             console.log(mailOptions);
                             transporter.sendMail(mailOptions, function (error, info) {
