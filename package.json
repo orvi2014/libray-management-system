@@ -13,7 +13,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^1.4.8",
+    "electron": "^7.2.4",
     "electron-builder": "^20.38.5",
     "electron-installer-windows": "^1.1.0",
     "electron-packager": "^13.0.1"
