@@ -22,7 +22,7 @@
     "datatables.net-dt": "^1.10.19",
     "decompress-zip": "^0.2.2",
     "jquery": "^3.3.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "jspdf-autotable": "^2.3.5",
     "nedb": "^1.8.0",
     "nodemailer": "^4.7.0",
